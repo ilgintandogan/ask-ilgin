@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 import json
 import os
 
@@ -8,14 +8,12 @@ st.set_page_config(page_title="Ilgın Tandoğan - AI Asistanı", page_icon="🤖
 
 # --- KENAR ÇUBUĞU (Profil Bilgileri) ---
 with st.sidebar:
-    st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan") # Buraya kendi foto linkini koyabilirsin
+    st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan")
     st.write("📍 Ankara, Türkiye")
     st.write("📧 ilgintandogan@gmail.com")
     st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
     
-    # API Key Girişi (Güvenlik için kullanıcıdan istiyoruz veya secrets'tan çekiyoruz)
-    # Eğer GitHub'a yükleyeceksen bu key'i kodun içine ASLA yazma.
-    # Streamlit Secrets kullanacağız.
+    # API Key alma
     if "GEMINI_API_KEY" in st.secrets:
         api_key = st.secrets["GEMINI_API_KEY"]
     else:
@@ -28,7 +26,7 @@ Ben Ilgın'ın CV verileriyle eğitilmiş bir yapay zekayım.
 Bana onun **DevOps tecrübeleri, projeleri, sertifikaları veya eğitimi** hakkında soru sorabilirsiniz.
 """)
 
-# JSON Verisini Yükle
+# JSON verisini yükle
 def load_data():
     with open('data.json', 'r', encoding='utf-8') as f:
         return json.load(f)
@@ -39,7 +37,7 @@ except FileNotFoundError:
     st.error("data.json dosyası bulunamadı!")
     st.stop()
 
-# Hazır Sorular (Butonlar)
+# Hazır sorular
 col1, col2, col3 = st.columns(3)
 if col1.button("🎓 Eğitimi nedir?"):
     prompt_input = "Eğitim geçmişinden bahset."
@@ -50,7 +48,7 @@ elif col3.button("💼 DevOps deneyimi var mı?"):
 else:
     prompt_input = None
 
-# Kullanıcıdan Soru Alma
+# Kullanıcı Soru
 user_question = st.chat_input("Ilgın hakkında ne merak ediyorsunuz?")
 
 if user_question:
@@ -58,30 +56,39 @@ if user_question:
 
 # --- AI CEVAP MEKANİZMASI ---
 if prompt_input and api_key:
-    # Model Kurulumu
-    genai.configure(api_key=api_key)
-   
-    model = genai.GenerativeModel('gpt-4o-mini')
 
-    # Sistem Mesajı (Prompt Engineering)
+    # Google GenAI Client
+    client = genai.Client(api_key=api_key)
+
+    # Gemini modeli (Google AI Studio'da en stabil model)
+    MODEL_NAME = "gemini-2.0-flash"  # erişimin varsa gemini-2.0-pro da olur
+
     system_prompt = f"""
     Sen Ilgın Tandoğan'ı temsil eden yardımsever ve profesyonel bir asistanısın.
     Aşağıdaki JSON formatındaki CV verilerini kullanarak sorulara cevap ver.
-    Cevapların kısa, net ve birinci tekil şahıs ağzından (Ilgın gibi) veya "Ilgın..." şeklinde üçüncü şahıs olabilir.
+    Cevapların kısa, net ve profesyonel olsun.
     Eğer CV'de olmayan bir bilgi sorulursa, kibarca bilmediğini söyle ve mail adresine yönlendir.
-    
+
     CV VERİSİ:
     {json.dumps(cv_data, ensure_ascii=False)}
-    
+
     SORU: {prompt_input}
     """
 
     with st.spinner("Ilgın'ın hafızası taranıyor..."):
         try:
-            response = model.generate_content(system_prompt)
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=system_prompt
+            )
+
+            # Gemini response yapısı
+            answer = response.text
+
             st.markdown(f"**Soru:** {prompt_input}")
             st.markdown("---")
-            st.markdown(response.text)
+            st.markdown(answer)
+
         except Exception as e:
             st.error(f"Bir hata oluştu: {e}")
 
