@@ -3,6 +3,10 @@ from google import genai
 import json
 import os
 
+if "prompt_input" not in st.session_state:
+    st.session_state.prompt_input = None
+
+
 # Sayfa Ayarları
 st.set_page_config(page_title="Ilgın Tandoğan - AI Asistanı", page_icon="🤖")
 
@@ -40,19 +44,19 @@ except FileNotFoundError:
 # Hazır sorular
 col1, col2, col3 = st.columns(3)
 if col1.button("🎓 Eğitimi nedir?"):
-    prompt_input = "Eğitim geçmişinden bahset."
+    st.session_state.prompt_input = "Eğitim geçmişinden bahset."
 elif col2.button("🛠 Hangi araçları biliyor?"):
-    prompt_input = "Teknik yetkinlikleri ve bildiği araçlar neler?"
+    st.session_state.prompt_input = "Teknik yetkinlikleri ve bildiği araçlar neler?"
 elif col3.button("💼 DevOps deneyimi var mı?"):
-    prompt_input = "DevOps ve Cloud alanındaki deneyimlerinden bahset."
-else:
-    prompt_input = None
+    st.session_state.prompt_input = "DevOps ve Cloud alanındaki deneyimlerinden bahset."
 
-# Kullanıcı Soru
+
+
+
 user_question = st.chat_input("Ilgın hakkında ne merak ediyorsunuz?")
-
 if user_question:
-    prompt_input = user_question
+    st.session_state.prompt_input = user_question
+
 
 # --- AI CEVAP MEKANİZMASI ---
 if prompt_input and api_key:
