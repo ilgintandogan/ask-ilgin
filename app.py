@@ -60,7 +60,7 @@ if user_question:
 if prompt_input and api_key:
     # Model Kurulumu
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-1.5-flash') # Ücretsiz ve hızlı model
+    model = genai.GenerativeModel('gemini-1.5-flash')
 
     # Sistem Mesajı (Prompt Engineering)
     system_prompt = f"""
