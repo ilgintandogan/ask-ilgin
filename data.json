@@ -1,0 +1,66 @@
+{
+  "profile": {
+    "name": "Ilgın Tandoğan",
+    "title": "DevOps & Software Enthusiast",
+    "location": "Ankara, Türkiye",
+    "contact": {
+      "email": "ilgintandogan@gmail.com",
+      "linkedin": "http://www.linkedin.com/in/ilgintandogan",
+      "github": "https://github.com/ilgintandogan"
+    },
+    "summary": "DevOps ve yazılım meraklısı. Kubernetes, bulut ortamları ve web geliştirme konularında yetenekli. Gerçek dünya projelerine katkıda bulunmaya ve profesyonel olarak büyümeye istekli.",
+    "education": {
+      "university": "Bilkent Üniversitesi",
+      "degree": "Bilişim Teknolojileri ve Bilişim Sistemleri (Lisans)",
+      "cgpa": "3.33/4.00",
+      "dates": "Eylül 2022 - Devam Ediyor (Beklenen Mezuniyet: Mayıs 2027)",
+      "coursework": ["Algoritmalar & Problem Çözme", "Veritabanı Yönetim Sistemleri", "Yazılım Mühendisliği", "Veri Analizi", "Mobil Uygulama Geliştirme", "Ağ", "Web Geliştirme", "NYP"]
+    }
+  },
+  "experience": [
+    {
+      "company": "Online (Turkey & Balkans) Social Office",
+      "role": "IT Internship Program",
+      "dates": "Kasım 2025 - Devam Ediyor",
+      "description": "Uluslararası bir ortamda teknik ve yaratıcı becerileri geliştirmek için Excel, AutoCAD, Photoshop ve Python odaklı portföy tabanlı BT eğitim programına katılım.",
+      "skills": ["Excel", "AutoCAD", "Photoshop", "Python", "MS Office Suite"]
+    },
+    {
+      "company": "YMD Technology",
+      "role": "IT Network and Technology Specialist (Freelance)",
+      "dates": "Ağustos 2025 - Ekim 2025",
+      "description": "Ağ bakımı ve altyapı izlemeyi desteklemek için anlaşıldı. İç yeniden yapılanma nedeniyle proje atamaları başlamadan rol sonlandı."
+    },
+    {
+      "company": "Portakal Technology",
+      "role": "DevOps Summer Intern",
+      "dates": "Haziran 2025 - Ağustos 2025",
+      "description": "Sistemlerin VMware'den hibrit buluta (Mirantis kos, kordent ve OpenStack kullanarak) taşınması üzerinde çalışıldı. Ağ kurulumu, depolama erişimi, yedekleme stratejileri ve felaket kurtarma planlamasına katkıda bulunuldu.",
+      "skills": ["kos", "kordent", "Mirantis OpenStack", "Linux", "Proxmox VE", "Networking", "SSH", "YAML"]
+    },
+    {
+      "company": "Self-employed",
+      "role": "Coding Tutor",
+      "dates": "Haziran 2025 - Ağustos 2025",
+      "description": "Üniversite öğrencilerine temel programlama kavramları, problem çözme becerileri ve C programlama konusunda birebir dersler verildi. CTIS 359 (Yazılım Mühendisliği) için gereksinimler, diyagramlar ve proje geliştirme üzerine özel ders verildi."
+    }
+  ],
+  "skills": {
+    "languages": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript"],
+    "tools_ide": ["RStudio", "Visual Studio", "VS Code", "Eclipse IDE", "Android Studio", "GLUT (OpenGL)", "Oracle Database"],
+    "cloud_devops": ["Kubernetes (kos, kordent)", "Mirantis OpenStack", "Proxmox VE"],
+    "productivity": ["Microsoft Office Suite"]
+  },
+  "certificates": [
+    "CCNA: Introduction to Networks (2025)",
+    "CN 050: Introduction to Cloud Native Computing - Mirantis Training",
+    "Veeam Certified Sales Professional - Public Cloud",
+    "Veeam Certified Sales Professional - Cybersecurity & DR",
+    "Veeam Kubernetes Data Protection"
+  ],
+  "languages": [
+    "Türkçe (Anadil)",
+    "İngilizce (Upper Intermediate)",
+    "Almanca (Başlangıç)"
+  ]
+}
