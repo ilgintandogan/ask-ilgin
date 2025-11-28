@@ -1,27 +1,22 @@
+# app.py
 import streamlit as st
 from google import genai
 import json
-import os
 
+st.set_page_config(page_title="Ilgın Tandoğan - AI Asistanı", page_icon="🤖")
+
+# ---- SESSION STATE INIT ----
 if "prompt_input" not in st.session_state:
     st.session_state.prompt_input = None
 
-
-# Sayfa Ayarları
-st.set_page_config(page_title="Ilgın Tandoğan - AI Asistanı", page_icon="🤖")
-
-# --- KENAR ÇUBUĞU (Profil Bilgileri) ---
+# --- SIDEBAR ---
 with st.sidebar:
     st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan")
     st.write("📍 Ankara, Türkiye")
     st.write("📧 ilgintandogan@gmail.com")
     st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
-    
-    # API Key alma
-    if "GEMINI_API_KEY" in st.secrets:
-        api_key = st.secrets["GEMINI_API_KEY"]
-    else:
-        api_key = st.text_input("Google Gemini API Key", type="password")
+    # API Key alma: önce secrets sonra input
+    api_key = st.secrets.get("GEMINI_API_KEY", None) or st.text_input("Google Gemini API Key", type="password")
 
 # --- ANA EKRAN ---
 st.title("Merhaba! Ben Ilgın'ın AI Asistanıyım 👋")
@@ -30,7 +25,7 @@ Ben Ilgın'ın CV verileriyle eğitilmiş bir yapay zekayım.
 Bana onun **DevOps tecrübeleri, projeleri, sertifikaları veya eğitimi** hakkında soru sorabilirsiniz.
 """)
 
-# JSON verisini yükle
+# Load JSON
 def load_data():
     with open('data.json', 'r', encoding='utf-8') as f:
         return json.load(f)
@@ -41,31 +36,27 @@ except FileNotFoundError:
     st.error("data.json dosyası bulunamadı!")
     st.stop()
 
-# Hazır sorular
+# Hazır sorular (butonlar) -- bunlar session_state'i set eder
 col1, col2, col3 = st.columns(3)
 if col1.button("🎓 Eğitimi nedir?"):
     st.session_state.prompt_input = "Eğitim geçmişinden bahset."
-elif col2.button("🛠 Hangi araçları biliyor?"):
+if col2.button("🛠 Hangi araçları biliyor?"):
     st.session_state.prompt_input = "Teknik yetkinlikleri ve bildiği araçlar neler?"
-elif col3.button("💼 DevOps deneyimi var mı?"):
+if col3.button("💼 DevOps deneyimi var mı?"):
     st.session_state.prompt_input = "DevOps ve Cloud alanındaki deneyimlerinden bahset."
 
-
-
-
+# Chat input
 user_question = st.chat_input("Ilgın hakkında ne merak ediyorsunuz?")
 if user_question:
     st.session_state.prompt_input = user_question
 
+# Güvenli okuma: prompt_input burada her zaman tanımlı (None ya da string)
+prompt_input = st.session_state.get("prompt_input", None)
 
-# --- AI CEVAP MEKANİZMASI ---
+# ---- AI CEVAP MEKANİZMASI ----
 if prompt_input and api_key:
-
-    # Google GenAI Client
     client = genai.Client(api_key=api_key)
-
-    # Gemini modeli (Google AI Studio'da en stabil model)
-    MODEL_NAME = "gemini-2.0-flash"  # erişimin varsa gemini-2.0-pro da olur
+    MODEL_NAME = "gemini-2.0-flash"  # Hesabında erişimin varsa değiştirebilirsin
 
     system_prompt = f"""
     Sen Ilgın Tandoğan'ı temsil eden yardımsever ve profesyonel bir asistanısın.
@@ -85,13 +76,21 @@ if prompt_input and api_key:
                 model=MODEL_NAME,
                 contents=system_prompt
             )
-
-            # Gemini response yapısı
-            answer = response.text
+            # SDK sürümüne göre response yapısı değişebilir; .text sık çalışır
+            answer = getattr(response, "text", None)
+            if not answer:
+                # fallback: daha derin yapılar
+                try:
+                    answer = response.output[0].content[0].text
+                except Exception:
+                    answer = str(response)
 
             st.markdown(f"**Soru:** {prompt_input}")
             st.markdown("---")
             st.markdown(answer)
+
+            # Eğer yanıt verildikten sonra prompt'u temizlemek istersen:
+            st.session_state.prompt_input = None
 
         except Exception as e:
             st.error(f"Bir hata oluştu: {e}")
