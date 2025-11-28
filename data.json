@@ -1,66 +1,88 @@
 {
   "profile": {
     "name": "Ilgın Tandoğan",
-    "title": "DevOps & Software Enthusiast",
+    "title": "CTIS Student & DevOps Enthusiast",
     "location": "Ankara, Türkiye",
     "contact": {
       "email": "ilgintandogan@gmail.com",
       "linkedin": "http://www.linkedin.com/in/ilgintandogan",
       "github": "https://github.com/ilgintandogan"
     },
-    "summary": "DevOps ve yazılım meraklısı. Kubernetes, bulut ortamları ve web geliştirme konularında yetenekli. Gerçek dünya projelerine katkıda bulunmaya ve profesyonel olarak büyümeye istekli.",
+    "summary": "Bilkent Üniversitesi CTIS 3. sınıf öğrencisi. Bulut tabanlı teknolojiler (Cloud-Native), sistem altyapısı ve DevOps konularına odaklı. Programlama ve ön yüz geliştirme temeline sahip olmakla birlikte, Kubernetes, Proxmox ve OpenStack gibi araçlarla edindiği son tecrübelerle ölçeklenebilir ve dayanıklı sistemlere ilgi duyuyor. Meraklı, teknik becerilerini insan odaklı problem çözme yaklaşımıyla birleştiren bir yapıya sahip.",
     "education": {
-      "university": "Bilkent Üniversitesi",
-      "degree": "Bilişim Teknolojileri ve Bilişim Sistemleri (Lisans)",
+      "university": "Bilkent University",
+      "department": "Computer Technologies and Information Systems (CTIS)",
+      "degree": "Lisans",
       "cgpa": "3.33/4.00",
-      "dates": "Eylül 2022 - Devam Ediyor (Beklenen Mezuniyet: Mayıs 2027)",
-      "coursework": ["Algoritmalar & Problem Çözme", "Veritabanı Yönetim Sistemleri", "Yazılım Mühendisliği", "Veri Analizi", "Mobil Uygulama Geliştirme", "Ağ", "Web Geliştirme", "NYP"]
+      "dates": "2022 - Devam Ediyor",
+      "high_school": "Bahcesehir Science High School (2021-2022), Sehit Mustafa Serin Science High School (2018-2021)"
     }
   },
   "experience": [
     {
-      "company": "Online (Turkey & Balkans) Social Office",
-      "role": "IT Internship Program",
-      "dates": "Kasım 2025 - Devam Ediyor",
-      "description": "Uluslararası bir ortamda teknik ve yaratıcı becerileri geliştirmek için Excel, AutoCAD, Photoshop ve Python odaklı portföy tabanlı BT eğitim programına katılım.",
-      "skills": ["Excel", "AutoCAD", "Photoshop", "Python", "MS Office Suite"]
-    },
-    {
       "company": "YMD Technology",
-      "role": "IT Network and Technology Specialist (Freelance)",
+      "role": "IT Network and Technology Specialist (Freelance - Remote)",
       "dates": "Ağustos 2025 - Ekim 2025",
-      "description": "Ağ bakımı ve altyapı izlemeyi desteklemek için anlaşıldı. İç yeniden yapılanma nedeniyle proje atamaları başlamadan rol sonlandı."
+      "description": "Ağ bakımı ve altyapı izleme desteği sağlamak üzere anlaşıldı. İç yeniden yapılanma nedeniyle proje atamaları başlamadan görev sonlandı."
     },
     {
       "company": "Portakal Technology",
       "role": "DevOps Summer Intern",
       "dates": "Haziran 2025 - Ağustos 2025",
-      "description": "Sistemlerin VMware'den hibrit buluta (Mirantis kos, kordent ve OpenStack kullanarak) taşınması üzerinde çalışıldı. Ağ kurulumu, depolama erişimi, yedekleme stratejileri ve felaket kurtarma planlamasına katkıda bulunuldu.",
-      "skills": ["kos", "kordent", "Mirantis OpenStack", "Linux", "Proxmox VE", "Networking", "SSH", "YAML"]
+      "description": "Sistemlerin VMware'den hibrit buluta (Mirantis kos, kordent ve OpenStack kullanarak) taşınması üzerinde çalıştı. Ağ kurulumu, depolama erişimi, yedekleme stratejileri ve felaket kurtarma (DR) planlamasına katkıda bulundu."
     },
     {
       "company": "Self-employed",
       "role": "Coding Tutor",
       "dates": "Haziran 2025 - Ağustos 2025",
-      "description": "Üniversite öğrencilerine temel programlama kavramları, problem çözme becerileri ve C programlama konusunda birebir dersler verildi. CTIS 359 (Yazılım Mühendisliği) için gereksinimler, diyagramlar ve proje geliştirme üzerine özel ders verildi."
+      "description": "Temel programlama kavramları, problem çözme becerileri ve C programlama üzerine birebir özel dersler verdi."
+    },
+    {
+      "company": "Bilkent University - Information and Promotion Office",
+      "role": "Promoter",
+      "dates": "Eylül 2023 - Haziran 2025",
+      "description": "Üniversiteyi etkinliklerde temsil etti, aday öğrencilere kayıt süreçlerinde rehberlik etti."
+    },
+    {
+      "company": "Bilkent University - Social Awareness Projects (Gunkoy)",
+      "role": "Member",
+      "dates": "Eylül 2023 - Ocak 2024",
+      "description": "Bağış kampanyaları düzenledi (kitap ve oyuncak). İhtiyaç sahibi köy okullarında kütüphaneler kurarak yerel eğitime katkı sağladı."
+    },
+    {
+      "company": "Bilkent University - Student Affairs Directorate",
+      "role": "Part-time Assistant",
+      "dates": "Eylül 2023 - Ocak 2024",
+      "description": "İdari destek sağladı, öğrenci kayıtlarının doğruluğunu korudu ve hizmet verimliliğinin artırılmasına katkıda bulundu."
     }
   ],
   "skills": {
-    "languages": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript"],
-    "tools_ide": ["RStudio", "Visual Studio", "VS Code", "Eclipse IDE", "Android Studio", "GLUT (OpenGL)", "Oracle Database"],
+    "programming": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript"],
+    "tools_ide": ["RStudio", "Visual Studio", "VS Code", "Eclipse IDE", "Android Studio", "GLUT (OpenGL)"],
+    "database": ["Oracle Database"],
     "cloud_devops": ["Kubernetes (kos, kordent)", "Mirantis OpenStack", "Proxmox VE"],
-    "productivity": ["Microsoft Office Suite"]
+    "productivity": ["Microsoft Office Suite (Word, Excel, PowerPoint)"]
   },
   "certificates": [
     "CCNA: Introduction to Networks (2025)",
+    "Ludi: Job Simulation (2025)",
     "CN 050: Introduction to Cloud Native Computing - Mirantis Training",
-    "Veeam Certified Sales Professional - Public Cloud",
-    "Veeam Certified Sales Professional - Cybersecurity & DR",
+    "BTK Academy: TS EN 50600 Data Centre Facilities and Infrastructure Standards",
+    "Veeam Sales Professional - SaaS Protection",
+    "Veeam Sales Professional - Public Cloud",
+    "Veeam Sales Professional - Cybersecurity & DR",
+    "Veeam Cloud Service Provider",
     "Veeam Kubernetes Data Protection"
   ],
   "languages": [
     "Türkçe (Anadil)",
     "İngilizce (Upper Intermediate)",
-    "Almanca (Başlangıç)"
-  ]
+    "Almanca (Beginner)"
+  ],
+  "hobbies": [
+    "Yüzme (Eski lisanslı sporcu)",
+    "Satranç (Eski yarışmacı)",
+    "Voleybol"
+  ],
+  "references": "Referans bilgileri istek üzerine e-posta yoluyla iletilebilir."
 }
