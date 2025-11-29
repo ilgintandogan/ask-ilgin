@@ -11,7 +11,7 @@ if "prompt_input" not in st.session_state:
 
 # --- SIDEBAR (SOL MENÜ) ---
 with st.sidebar:
-    st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan")
+    st.image("ilgin.jpg", caption="Ilgın Tandoğan", width=150)
     st.write("📍 Ankara, Türkiye")
     st.write("📧 ilgintandogan@gmail.com")
     st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
