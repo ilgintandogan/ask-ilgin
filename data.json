@@ -30,16 +30,16 @@
   },
   "projects": [
     {
-      "name": "EduGraph (AI Destekli YKS Koçu)",
+      "name": "EduGraph (YKS Koçluk Platformu)",
       "category": "AI & Web Project",
       "tech": ["Python", "AI", "Knowledge Graphs", "Web Development"],
-      "description": "Takım arkadaşlarıyla geliştirmekte olduğu yapay zeka tabanlı bir eğitim platformu. Öğrencilerin öğrenme hedeflerini interaktif bilgi grafikleri (Knowledge Graph) ile görselleştirerek kişiselleştirilmiş YKS koçluğu sağlıyor."
+      "description": "Şu anda takım arkadaşlarıyla aktif olarak geliştirdiği, AI destekli bir YKS eğitim platformudur. Öğrencilerin öğrenme hedeflerini 'Knowledge Graph' (Bilgi Grafikleri) ile görselleştirerek kişiselleştirilmiş koçluk sağlar. (En güncel ve büyük projesidir)."
     },
     {
-      "name": "WastlessWorld (Web Pazar Yeri)",
-      "category": "Web Application",
-      "tech": ["PHP", "SQL", "Database Design"],
-      "description": "Gıda israfını önlemek amacıyla tüketicileri ve marketleri buluşturan WEB TABANLI bir pazar yeri uygulaması. PHP ve SQL kullanılarak sağlam bir backend ve veritabanı mimarisi üzerine kuruldu. (Android projesi değildir, web uygulamasıdır)."
+      "name": "WastlessWorld",
+      "category": "Web Application (PHP/SQL)",
+      "tech": ["PHP", "SQL", "HTML/CSS"],
+      "description": "PHP ve SQL kullanılarak geliştirilen, kullanıcıların 'Tüketici' veya 'Market' olarak kayıt olabildiği bir web platformudur. Ürün yönetimi (CRUD), alışveriş sepeti operasyonları ve güvenli kullanıcı giriş (authentication) sistemlerini içerir. Marketlerin ürünlerini listelemesini ve tüketicilerin bu ürünleri sepetlerine eklemesini sağlayan tam fonksiyonel bir e-ticaret altyapısına sahiptir."
     },
     {
       "name": "BookIT (Kütüphane Yönetim Sistemi)",
@@ -48,7 +48,7 @@
       "description": "Java kullanılarak MASAÜSTÜ (Desktop) ortamı için geliştirilmiş kapsamlı bir kütüphane yönetim sistemi. Nesne Yönelimli Programlama (OOP) yapısı kullanılarak üye takibi, kitap ödünç alma/iade işlemleri ve ceza hesaplama algoritmaları kodlandı."
     },
     {
-      "name": "Mobil Uygulama Geliştirme (Android)",
+      "name": "Android Studio Projeleri",
       "category": "Mobile Application",
       "tech": ["Android Studio", "Kotlin", "Mobile UI/UX"],
       "description": "Android Studio platformunda Kotlin kullanarak geliştirdiği çeşitli mobil uygulamalar mevcuttur. Bu projelerde mobil arayüz tasarımı (UI), kullanıcı deneyimi (UX) ve mobil veri yönetimi konularında deneyim kazanmıştır."
