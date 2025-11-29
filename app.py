@@ -56,4 +56,6 @@ def load_all_data(data_dir=DATA_DIR, root_file=ROOT_DATA_FILE):
 
     return ensure_sample_data()
 
-def text_from_part
+def text_from_part(part):
+    return part.get("text", "")
+
