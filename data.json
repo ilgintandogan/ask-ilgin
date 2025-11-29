@@ -28,26 +28,32 @@
       "company": "YMD Technology",
       "role": "IT Network and Technology Specialist (Freelance - Remote)",
       "dates": "Ağustos 2025 - Ekim 2025",
-      "description": "Ağ bakımı ve altyapı izleme desteği sağladı.Toplantılara katılarak start-up sahibi öğrenciye çeşitli konularda tavsiye verip yardımcı oldu. Lakin , takım birliği sağlanılmadığı için istifa etti."
+      "description": "Ağ bakımı ve altyapı izleme desteği sağladı. Start-up sahibi öğrenciye çeşitli konularda tavsiye verip mentorluk yaptı. Takım birliği ve iletişim süreçlerindeki uyumsuzluklar nedeniyle profesyonelce ayrılarak yeni fırsatlara odaklandı."
     },
     {
       "company": "Portakal Technology",
       "role": "DevOps Summer Intern",
       "dates": "Haziran 2025 - Ağustos 2025",
-      "description": "VMware'den hibrit buluta geçiş (Mirantis kos, kordent, OpenStack) projelerinde çalıştı. Disaster Recovery (DR) planlamasında rol aldı.Birden fazla node oluşturarak bu nodelar arasında şifresiz uygulama deployment yaptı."
+      "description": "VMware'den hibrit buluta geçiş (Mirantis kos, kordent, OpenStack) projelerinde aktif rol aldı. Disaster Recovery (DR) planlaması yaptı. Özellikle birden fazla node oluşturarak bu nodelar arasında şifresiz uygulama deployment süreçlerini başarıyla yönetti."
     },
     {
       "company": "Self-employed",
       "role": "Coding Tutor",
       "dates": "Haziran 2025 - Ağustos 2025",
-      "description": "Üniversite öğrencilerine C programlama ve algoritma dersleri verdi. Karmaşık teknik kavramları basitleştirerek anlatma yeteneğini geliştirdi.Farkı üniversitelerde eğitim gören öğrenciler farklı seviyede öğretim seviyesine sahipti. Öğrencinin öğrenme tarzına ve ihtiyacına göre konu anlatımını değiştirmeyi öğrendi. Kodlama bilmeyen öğrenciler için hayal güçlerini kullanarak anlamalarına yardımcı oldu. Öğrencilerin hepsi dersi yüksek notlarla geçti."
+      "description": "Üniversite öğrencilerine C programlama ve algoritma dersleri verdi. Öğrencilerin farklı öğrenme seviyelerine göre anlatım tarzını adapte etti (Adaptive Teaching). Kodlama bilmeyen öğrenciler için analojiler ve hayal gücü odaklı anlatım teknikleri geliştirdi. Tüm öğrencileri dersi yüksek notlarla geçti."
     },
     {
       "company": "Bilkent University",
       "role": "Promoter & Social Project Member",
       "dates": "2023 - 2025",
-      "description": "Üniversite tanıtımlarında aktif rol aldı.Liselerden gelen öğrencilere okul tanıtımı yapıp , tur yaptı.  Sosyal sorumluluk projelerinde (Gunkoy) köy okulları için kütüphane kurma çalışmalarını yönetti. Maddi durumları iyi olmayan köylere gidip , orada sıfırdan kütüphane yapılmasına yardım etti. Duvarları çocuklar için grafik tasarımı yapıp boyadı , kitap ve kıyafet bağışları topladı ve hepsini yerleştirdi. Gece de okulda kalıp iki günde sıfırdan kütüphane oluşturulmasına yardım etti."
-    }
+      "description": "Üniversite tanıtımlarında lise öğrencilerine rehberlik ettim. Öğrencilere kısa Bilkent turu yaptırıp okul hakkında bilgi verdim. Gunkoy sosyal sorumluluk projesinde köy okulları için kütüphane kurma çalışmalarını yönettim. Maddi imkanı kısıtlı köylerde sıfırdan kütüphane inşasına fiziksel olarak yardım ettim; duvarları çocuklar için takım olarak çocuklar için tasarım yapıp duvara o tasarımı boyadık. Gece okulda kalarak ekibimle birlikte iki günde kütüphaneyi tamamlayacak kadar özverili çalıştım."
+    },
+     {
+      "company": "Bilkent University ",
+      "role": "Öğrenci İşleri'nde asistan ",
+      "dates": "2023 - 2024",
+      "description":"Öğrenci işlerinde belge işlerinde yardımcı oldum. Gerektiğinde telefonlara ceavp verip yoğun zamanlarda orda çalışan kişilerin yükünü azaltmakta rol oynadım."
+    },
   ],
   "skills": {
     "programming": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript"],
