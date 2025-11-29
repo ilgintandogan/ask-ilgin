@@ -16,7 +16,7 @@ with st.sidebar:
     st.write("📧 ilgintandogan@gmail.com")
     st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
     
-    st.success("🟢 Model: Gemini 2.0 Flash")
+   
 
     # API Key alma
     api_key = st.secrets.get("GEMINI_API_KEY", None) or st.text_input("Google Gemini API Key", type="password")
