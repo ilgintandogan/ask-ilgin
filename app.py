@@ -1,32 +1,38 @@
 import streamlit as st
-from google import genai
+import google.generativeai as genai
 import json
+import os
 
-st.set_page_config(page_title="Ilgın Tandoğan - AI Asistanı", page_icon="🤖")
+# Sayfa Ayarları
+st.set_page_config(page_title="Ilgın Tandoğan - AI Asistanı", page_icon="🤖", layout="wide")
 
-# ---- SESSION STATE INIT ----
-if "prompt_input" not in st.session_state:
-    st.session_state.prompt_input = None
-
-# --- SIDEBAR ---
+# --- KENAR ÇUBUĞU (Profil Bilgileri) ---
 with st.sidebar:
-    st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan")
-    st.write("📍 Ankara, Türkiye")
-    st.write("📧 ilgintandogan@gmail.com")
-    st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
-
-    # API Key alma: önce secrets sonra input
-    api_key = st.secrets.get("GEMINI_API_KEY", None) or st.text_input("Google Gemini API Key", type="password")
+    # Buraya kendi fotoğrafının linkini koyabilirsin veya boş bırakabilirsin
+    st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan") 
+    st.markdown("### 📍 Ankara, Türkiye")
+    st.markdown("📧 ilgintandogan@gmail.com")
+    st.markdown("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
+    
+    st.success("🟢 AI Model: Gemini 1.5 Flash (Aktif)")
+    
+    # API Key Kontrolü
+    if "GEMINI_API_KEY" in st.secrets:
+        api_key = st.secrets["GEMINI_API_KEY"]
+    else:
+        st.error("API Key bulunamadı! Lütfen Secrets ayarlarını kontrol et.")
+        st.stop()
 
 # --- ANA EKRAN ---
-st.title("Merhaba! Ben Ilgın'ın AI Asistanıyım 👋")
-
-st.write("""
-Ben Ilgın'ın CV verileriyle eğitilmiş bir yapay zekayım.
-Bana onun **DevOps tecrübeleri, projeleri, sertifikaları veya eğitimi** hakkında soru sorabilirsiniz.
+st.title("Merhaba! Ben Ilgın'ın Dijital İkiziyim 👋")
+st.markdown("""
+Ben, Ilgın'ın **CV verileri, proje deneyimleri ve kişisel özellikleriyle** eğitilmiş bir yapay zekayım.
+Aşağıdaki hazır sorulara tıklayabilir veya aklınızdakini direkt sorabilirsiniz.
 """)
 
-# Load JSON
+st.markdown("---")
+
+# JSON Verisini Yükle
 def load_data():
     with open('data.json', 'r', encoding='utf-8') as f:
         return json.load(f)
@@ -34,68 +40,78 @@ def load_data():
 try:
     cv_data = load_data()
 except FileNotFoundError:
-    st.error("data.json dosyası bulunamadı!")
+    st.error("data.json dosyası bulunamadı! GitHub'a yüklediğinden emin ol.")
     st.stop()
 
-# Hazır sorular (butonlar)
+# --- HAZIR SORU BUTONLARI (2 Satır Halinde) ---
 col1, col2, col3 = st.columns(3)
+col4, col5, col6 = st.columns(3)
 
-if col1.button("🎓 Eğitimi nedir?"):
-    st.session_state.prompt_input = "Eğitim geçmişinden bahset."
+prompt_input = None
 
-if col2.button("🛠 Hangi araçları biliyor?"):
-    st.session_state.prompt_input = "Teknik yetkinlikleri ve bildiği araçlar neler?"
+# 1. Satır Butonları
+with col1:
+    if st.button("🍊 Portakal Tech Deneyimi", help="Stajda neler yaptı?"):
+        prompt_input = "Portakal Technology stajında hangi teknolojileri kullandı, şifresiz deployment gibi spesifik neler yaptı detaylı anlat."
 
-if col3.button("💼 DevOps deneyimi var mı?"):
-    st.session_state.prompt_input = "DevOps ve Cloud alanındaki deneyimlerinden bahset."
+with col2:
+    if st.button("🧠 Karakteri & Soft Skills", help="Nasıl bir çalışma arkadaşıdır?"):
+        prompt_input = "Ilgın'ın karakteri, stres yönetimi ve çalışma disiplini nasıldır? Sporcu geçmişinin buna etkisi nedir?"
 
-# Chat input
-user_question = st.chat_input("Ilgın hakkında ne merak ediyorsunuz?")
+with col3:
+    if st.button("🎓 Eğitmenlik & Liderlik", help="Özel ders ve mentörlük deneyimi"):
+        prompt_input = "Ilgın'ın özel ders verme (tutor) deneyimi ve Gunkoy projesindeki liderlik/fedakarlık örneklerinden bahset."
+
+# 2. Satır Butonları
+with col4:
+    if st.button("🛠 Teknik Yetkinlikler", help="Hangi araçları biliyor?"):
+        prompt_input = "Ilgın'ın bildiği programlama dilleri, DevOps araçları ve Cloud teknolojileri nelerdir?"
+
+with col5:
+    if st.button("🚀 Kendini Nasıl Geliştiriyor?", help="Sertifikalar ve Öğrenme"):
+        prompt_input = "Ilgın kendini geliştirmek için neler yapıyor? Aldığı sertifikalar, katıldığı eğitimler ve hobileri neler?"
+
+with col6:
+    if st.button("❤️ Sosyal Sorumluluk", help="Gunkoy Projesi"):
+        prompt_input = "Gunkoy projesinde köy okulları için neler yaptı? Gece okulda kalıp boya yapması gibi detayları anlat."
+
+
+# Kullanıcıdan Özel Soru Alma Alanı
+st.markdown("---")
+user_question = st.chat_input("Veya buraya kendi sorunuzu yazın...")
 
 if user_question:
-    st.session_state.prompt_input = user_question
+    prompt_input = user_question
 
-prompt_input = st.session_state.get("prompt_input", None)
+# --- AI CEVAP MEKANİZMASI ---
+if prompt_input:
+    # Model Kurulumu (En stabil ve ücretsiz model)
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel('gemini-1.5-flash')
 
-# ---- AI CEVAP MEKANİZMASI ----
-if prompt_input and api_key:
-    client = genai.Client(api_key=api_key)
-    MODEL_NAME = "gemini-2.0-flash"
-
+    # Sistem Mesajı (Prompt Engineering) - Detayları kullanması için zorluyoruz
     system_prompt = f"""
-    Sen Ilgın Tandoğan'ı temsil eden yardımsever ve profesyonel bir asistanısın.
-    Aşağıdaki JSON formatındaki CV verilerini kullanarak sorulara cevap ver.
-
-    Cevapların kısa, net ve profesyonel olsun.
-    Eğer CV'de olmayan bir bilgi sorulursa, kibarca bilmediğini söyle ve mail adresine yönlendir.
-
+    Sen Ilgın Tandoğan'ı temsil eden profesyonel, samimi ve zeki bir AI asistanısın.
+    Amacın, işverenlere Ilgın'ın hem teknik becerilerini hem de karakterini en iyi şekilde anlatmak.
+    
+    Aşağıdaki JSON verisini KESİNLİKLE temel al.
+    Özellikle şu detayları vurgula:
+    - Portakal Technology'deki "şifresiz deployment" ve "multi-node" çalışmaları.
+    - Gunkoy projesindeki "duvar boyama", "gece okulda kalma" gibi fedakarlık detayları.
+    - Özel ders verirken geliştirdiği "Adaptive Teaching" yeteneği.
+    
+    Cevapların akıcı, motive edici ve Türkçe olsun. Ilgın adına konuşabilirsin ("Ben..." diyerek) veya üçüncü şahıs ("Ilgın...") kullanabilirsin.
+    
     CV VERİSİ:
     {json.dumps(cv_data, ensure_ascii=False)}
-
-    SORU:
-    {prompt_input}
+    
+    SORU: {prompt_input}
     """
 
-    with st.spinner("Ilgın'ın hafızası taranıyor..."):
-        try:
-            response = client.models.generate_content(
-                model=MODEL_NAME,
-                contents=system_prompt
-            )
-
-            answer = getattr(response, "text", None)
-
-            if not answer:
-                try:
-                    answer = response.output[0].content[0].text
-                except Exception:
-                    answer = str(response)
-
-            st.markdown(f"**Soru:** {prompt_input}")
-            st.markdown("---")
-            st.markdown(answer)
-
-            st.session_state.prompt_input = None
-
-        except Exception as e:
-            st.error(f"Bir hata oluştu: {e}")
+    with st.chat_message("assistant"):
+        with st.spinner("Ilgın'ın hafızası taranıyor..."):
+            try:
+                response = model.generate_content(system_prompt)
+                st.markdown(response.text)
+            except Exception as e:
+                st.error(f"Bir hata oluştu: {e}")
