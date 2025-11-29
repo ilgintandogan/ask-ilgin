@@ -53,18 +53,18 @@
       "company": "Bilkent University",
       "role": "Promoter & Social Project Member",
       "dates": "2023 - 2025",
-      "description": "Üniversite tanıtımlarında lise öğrencilerine rehberlik ettim. Öğrencilere kısa Bilkent turu yaptırıp okul hakkında bilgi verdim. Gunkoy sosyal sorumluluk projesinde köy okulları için kütüphane kurma çalışmalarını yönettim. Maddi imkanı kısıtlı köylerde sıfırdan kütüphane inşasına fiziksel olarak yardım ettim; duvarları çocuklar için takım olarak çocuklar için tasarım yapıp duvara o tasarımı boyadık. Gece okulda kalarak ekibimle birlikte iki günde kütüphaneyi tamamlayacak kadar özverili çalıştım."
+      "description": "Üniversite tanıtımlarında lise öğrencilerine rehberlik etti. Öğrencilere kısa Bilkent turu yaptırıp okul hakkında bilgi verdi. Gunkoy sosyal sorumluluk projesinde köy okulları için kütüphane kurma çalışmalarını yönetti. Maddi imkanı kısıtlı köylerde sıfırdan kütüphane inşasına fiziksel olarak yardım etti; duvarları çocuklar için takım olarak tasarlayıp boyadı. Gece okulda kalarak ekibiyle birlikte iki günde kütüphaneyi tamamlayacak kadar özverili çalıştı."
     },
-     {
-      "company": "Bilkent University ",
-      "role": "Öğrenci İşleri'nde asistan ",
+    {
+      "company": "Bilkent University",
+      "role": "Part-time Assistant (Student Affairs)",
       "dates": "2023 - 2024",
-      "description":"Öğrenci işlerinde belge işlerinde yardımcı oldum. Gerektiğinde telefonlara ceavp verip yoğun zamanlarda orda çalışan kişilerin yükünü azaltmakta rol oynadım."
-    },
+      "description": "Öğrenci işlerinde belge süreçlerine ve idari işlere yardımcı oldu. Gerektiğinde telefonlara cevap verip, yoğun kayıt dönemlerinde tam zamanlı çalışanların iş yükünü hafifletmekte aktif rol aldı."
+    }
   ],
   "skills": {
-    "programming": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript"],
-    "tools_ide": ["RStudio", "Visual Studio", "VS Code", "Eclipse IDE", "Android Studio"],
+    "programming": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript", "Python"],
+    "tools_ide": ["RStudio", "Visual Studio", "VS Code", "Eclipse IDE", "Android Studio", "AutoCAD", "Photoshop"],
     "cloud_devops": ["Kubernetes (kos, kordent)", "Mirantis OpenStack", "Proxmox VE"],
     "database": ["Oracle Database"]
   },
