@@ -35,14 +35,24 @@
       "description": "Takım arkadaşlarıyla geliştirmekte olduğu AI destekli bir eğitim platformu. Öğrencilerin öğrenme hedeflerini interaktif bilgi grafikleri (Knowledge Graph) ile görselleştirerek kişiselleştirilmiş YKS koçluğu sağlıyor."
     },
     {
-      "name": "ask-ilgin (AI Dijital İkiz)",
-      "tech": ["Python", "Streamlit", "Google Gemini API", "RAG"],
-      "description": "Kendi profesyonel deneyimlerini ve CV verilerini interaktif bir şekilde sunan yapay zeka tabanlı bir web uygulaması. Retrieval-Augmented Generation (RAG) mimarisini kullanarak sorulara kişiselleştirilmiş yanıtlar verir."
+      "name": "Crypto Trading Information System",
+      "tech": ["HTML", "CSS", "JavaScript", "Data Visualization"],
+      "description": "Gerçek 2021 tarihli piyasa verilerini kullanarak bir kripto para borsasını simüle eden web projesi. İnteraktif mum (candlestick) grafikleri, gerçek zamanlı cüzdan yönetimi ve alım-satım arayüzü içerir. Kullanıcının portföy değerini yıl sonuna kadar simüle eder."
+    },
+    {
+      "name": "EventHub",
+      "tech": ["HTML", "CSS", "Web Design"],
+      "description": "Etkinlik keşfetme ve rezervasyon platformu. Kullanıcı dostu arayüzü ile etkinlik galerisi, sepet yönetimi ve takım tanıtım sayfalarını içerir. Bilkent Üniversitesi projesi olarak geliştirilmiştir."
+    },
+    {
+      "name": "BookIT (Library Management System)",
+      "tech": ["Java", "OOP", "System Design"],
+      "description": "Java tabanlı kapsamlı bir kütüphane yönetim sistemi. Üye ve yönetici girişleri, yeni üye kaydı, kitap ödünç alma/iade etme ve gecikmiş iadeler için otomatik ceza hesaplama özelliklerini içerir. Veri yapıları ve algoritma mantığını kullanıcı dostu bir arayüzle birleştirir."
     },
     {
       "name": "WastlessWorld",
       "tech": ["PHP", "SQL", "Database Design"],
-      "description": "Tüketicileri ve marketleri buluşturan bir pazar yeri uygulaması. PHP ve SQL kullanılarak geliştirildi. Güvenli kullanıcı kimlik doğrulaması (authentication), ürün yönetimi ve alışveriş sepeti operasyonlarını içerir."
+      "description": "Tüketicileri ve marketleri israfı önlemek amacıyla buluşturan pazar yeri uygulaması. PHP ve SQL kullanılarak sağlam bir veritabanı altyapısı üzerine kuruldu. Güvenli kimlik doğrulama, ürün yönetimi ve sepet operasyonlarını kapsar."
     },
     {
       "name": "Rocket-Simulator",
@@ -50,9 +60,9 @@
       "description": "Roket yörüngelerini modellemek için C++ ile geliştirilmiş bir fizik simülasyonu. Nesne Yönelimli Programlama (OOP) prensiplerini ve karmaşık matematiksel hesaplamaları içerir."
     },
     {
-      "name": "BookIT",
-      "tech": ["Java", "System Design"],
-      "description": "Java kullanılarak geliştirilmiş kapsamlı bir kitap/kütüphane yönetim sistemi. Veri yapıları ve algoritma mantığını, kullanıcı dostu bir arayüz ile birleştirir."
+      "name": "ask-ilgin (AI Dijital İkiz)",
+      "tech": ["Python", "Streamlit", "Google Gemini API", "RAG"],
+      "description": "Kendi profesyonel deneyimlerini ve CV verilerini interaktif bir şekilde sunan yapay zeka tabanlı bir web uygulaması. Retrieval-Augmented Generation (RAG) mimarisini kullanarak sorulara kişiselleştirilmiş yanıtlar verir."
     }
   ],
   "experience": [
