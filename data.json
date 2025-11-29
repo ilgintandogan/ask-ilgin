@@ -30,39 +30,52 @@
   },
   "projects": [
     {
-      "name": "EduGraph (YKS Koçluk Platformu)",
+      "name": "EduGraph (AI Destekli YKS Koçu)",
+      "category": "AI & Web Project",
       "tech": ["Python", "AI", "Knowledge Graphs", "Web Development"],
-      "description": "Takım arkadaşlarıyla geliştirmekte olduğu AI destekli bir eğitim platformu. Öğrencilerin öğrenme hedeflerini interaktif bilgi grafikleri (Knowledge Graph) ile görselleştirerek kişiselleştirilmiş YKS koçluğu sağlıyor."
+      "description": "Takım arkadaşlarıyla geliştirmekte olduğu yapay zeka tabanlı bir eğitim platformu. Öğrencilerin öğrenme hedeflerini interaktif bilgi grafikleri (Knowledge Graph) ile görselleştirerek kişiselleştirilmiş YKS koçluğu sağlıyor."
     },
     {
-      "name": "Crypto Trading Information System",
-      "tech": ["HTML", "CSS", "JavaScript", "Data Visualization"],
-      "description": "Gerçek 2021 tarihli piyasa verilerini kullanarak bir kripto para borsasını simüle eden web projesi. İnteraktif mum (candlestick) grafikleri, gerçek zamanlı cüzdan yönetimi ve alım-satım arayüzü içerir. Kullanıcının portföy değerini yıl sonuna kadar simüle eder."
+      "name": "WastlessWorld (Web Pazar Yeri)",
+      "category": "Web Application",
+      "tech": ["PHP", "SQL", "Database Design"],
+      "description": "Gıda israfını önlemek amacıyla tüketicileri ve marketleri buluşturan WEB TABANLI bir pazar yeri uygulaması. PHP ve SQL kullanılarak sağlam bir backend ve veritabanı mimarisi üzerine kuruldu. (Android projesi değildir, web uygulamasıdır)."
+    },
+    {
+      "name": "BookIT (Kütüphane Yönetim Sistemi)",
+      "category": "Desktop Application",
+      "tech": ["Java", "OOP", "System Design"],
+      "description": "Java kullanılarak MASAÜSTÜ (Desktop) ortamı için geliştirilmiş kapsamlı bir kütüphane yönetim sistemi. Nesne Yönelimli Programlama (OOP) yapısı kullanılarak üye takibi, kitap ödünç alma/iade işlemleri ve ceza hesaplama algoritmaları kodlandı."
+    },
+    {
+      "name": "Mobil Uygulama Geliştirme (Android)",
+      "category": "Mobile Application",
+      "tech": ["Android Studio", "Kotlin", "Mobile UI/UX"],
+      "description": "Android Studio platformunda Kotlin kullanarak geliştirdiği çeşitli mobil uygulamalar mevcuttur. Bu projelerde mobil arayüz tasarımı (UI), kullanıcı deneyimi (UX) ve mobil veri yönetimi konularında deneyim kazanmıştır."
     },
     {
       "name": "EventHub",
+      "category": "Web Design",
       "tech": ["HTML", "CSS", "Web Design"],
-      "description": "Etkinlik keşfetme ve rezervasyon platformu. Kullanıcı dostu arayüzü ile etkinlik galerisi, sepet yönetimi ve takım tanıtım sayfalarını içerir. Bilkent Üniversitesi projesi olarak geliştirilmiştir."
+      "description": "Etkinlik keşfetme ve rezervasyon platformu. Kullanıcı dostu arayüzü ile etkinlik galerisi, sepet yönetimi ve takım tanıtım sayfalarını içerir."
     },
     {
-      "name": "BookIT (Library Management System)",
-      "tech": ["Java", "OOP", "System Design"],
-      "description": "Java tabanlı kapsamlı bir kütüphane yönetim sistemi. Üye ve yönetici girişleri, yeni üye kaydı, kitap ödünç alma/iade etme ve gecikmiş iadeler için otomatik ceza hesaplama özelliklerini içerir. Veri yapıları ve algoritma mantığını kullanıcı dostu bir arayüzle birleştirir."
-    },
-    {
-      "name": "WastlessWorld",
-      "tech": ["PHP", "SQL", "Database Design"],
-      "description": "Tüketicileri ve marketleri israfı önlemek amacıyla buluşturan pazar yeri uygulaması. PHP ve SQL kullanılarak sağlam bir veritabanı altyapısı üzerine kuruldu. Güvenli kimlik doğrulama, ürün yönetimi ve sepet operasyonlarını kapsar."
+      "name": "Crypto Trading Information System",
+      "category": "Web Simulation",
+      "tech": ["HTML", "CSS", "JavaScript", "Data Visualization"],
+      "description": "Gerçek piyasa verilerini kullanarak bir kripto para borsasını simüle eden web projesi. İnteraktif grafikler ve gerçek zamanlı cüzdan yönetimi içerir."
     },
     {
       "name": "Rocket-Simulator",
+      "category": "Physics Simulation",
       "tech": ["C++", "Physics Engine", "OOP"],
-      "description": "Roket yörüngelerini modellemek için C++ ile geliştirilmiş bir fizik simülasyonu. Nesne Yönelimli Programlama (OOP) prensiplerini ve karmaşık matematiksel hesaplamaları içerir."
+      "description": "Roket yörüngelerini modellemek için C++ ile geliştirilmiş bir fizik simülasyonu."
     },
     {
       "name": "ask-ilgin (AI Dijital İkiz)",
+      "category": "AI Application",
       "tech": ["Python", "Streamlit", "Google Gemini API", "RAG"],
-      "description": "Kendi profesyonel deneyimlerini ve CV verilerini interaktif bir şekilde sunan yapay zeka tabanlı bir web uygulaması. Retrieval-Augmented Generation (RAG) mimarisini kullanarak sorulara kişiselleştirilmiş yanıtlar verir."
+      "description": "Kendi profesyonel deneyimlerini ve CV verilerini interaktif bir şekilde sunan yapay zeka tabanlı web uygulaması."
     }
   ],
   "experience": [
