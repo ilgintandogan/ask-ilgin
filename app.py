@@ -11,12 +11,17 @@ if "prompt_input" not in st.session_state:
 
 # --- SIDEBAR (SOL MENÜ) ---
 with st.sidebar:
-    st.image("ilgin.jpg", caption="Ilgın Tandoğan", width=150)
+    
+    try:
+        st.image("ilgin.jpg", caption="Ilgın Tandoğan", width=150)
+    except:
+        st.image("https://via.placeholder.com/150", caption="Ilgın Tandoğan")
+
     st.write("📍 Ankara, Türkiye")
     st.write("📧 ilgintandogan@gmail.com")
     st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
     
-   
+    
 
     # API Key alma
     api_key = st.secrets.get("GEMINI_API_KEY", None) or st.text_input("Google Gemini API Key", type="password")
@@ -42,7 +47,6 @@ except FileNotFoundError:
     st.stop()
 
 # --- ÖZELLEŞTİRİLMİŞ BUTONLAR (3x3 Düzen) ---
-# İK'nın merak edeceği 3 ana kategori: Deneyim, Kişilik, Hedefler
 
 col1, col2, col3 = st.columns(3)
 col4, col5, col6 = st.columns(3)
@@ -58,8 +62,9 @@ with col2:
         st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri, DevOps araçları (Kubernetes, OpenStack vb.) ve Cloud teknolojileri nelerdir?"
 
 with col3:
-    if st.button("📚 Okul Projeleri", help="Bilkent'teki projeler"):
-        st.session_state.prompt_input = "Ilgın'ın okulda geliştirdiği Veritabanı ve Mobil Uygulama projelerinden bahset. Hangi teknolojileri kullandı?"
+    if st.button("📚 Projeler (EduGraph, Web, Mobil)", help="Okul ve Kişisel Projeler"):
+        # BURASI DEĞİŞTİ: EduGraph ve WastlessWorld için özel komut ekledim
+        st.session_state.prompt_input = "Ilgın'ın geliştirdiği en önemli proje olan EduGraph (YKS Koçu), WastlessWorld (PHP/SQL Web) ve Android Studio mobil uygulama projelerini detaylı anlat."
 
 # 2. Satır: Soft Skills & Karakter
 with col4:
@@ -101,16 +106,16 @@ if prompt_input and api_key:
     client = genai.Client(api_key=api_key)
     MODEL_NAME = "gemini-2.0-flash" 
 
-    # System Prompt: AI'a yeni eklediğimiz alanları da kullanmasını söylüyoruz
     system_prompt = f"""
     Sen Ilgın Tandoğan'ı temsil eden profesyonel, samimi ve zeki bir AI asistanısın.
     Amacın, işverenlere Ilgın'ın hem teknik becerilerini hem de karakterini en iyi şekilde satmak.
     
     Aşağıdaki JSON verisini KESİNLİKLE temel al.
-    Cevap verirken şu detayları vurgulamaya özen göster:
-    - Teknik konularda: Portakal'daki deployment detayları, okul projeleri ve araç bilgisi.
-    - Karakter konularında: Sporcu disiplini, fedakarlık (Günkoy), öğretme yeteneği.
-    - Vizyon konularında: Neden DevOps istediği ve problem çözme yaklaşımı.
+    
+    ÖNEMLİ: Projeler sorulduğunda şu sırayla ve detayla anlat:
+    1. EduGraph: En önemli projesidir (AI YKS Koçu).
+    2. WastlessWorld: Web tabanlı PHP/SQL projesidir (Market/Tüketici sistemi).
+    3. Android Projeleri: Android Studio ve Kotlin ile yapılanlar.
     
     Cevapların akıcı, motive edici ve Türkçe olsun.
     
