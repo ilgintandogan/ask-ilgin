@@ -21,8 +21,40 @@
       "working_style": "Disiplinli, detay odaklı ve çözüm merkezli. Eski bir lisanslı yüzücü ve satranç oyuncusu olarak stratejik düşünme ve uzun süreli odaklanma konusunda yetenekli.",
       "stress_management": "Stresli durumlarda soğukkanlılığını korur. Karmaşık problemleri daha küçük, yönetilebilir parçalara bölerek (divide and conquer) çözer. Sporcu geçmişinden gelen disiplinle baskı altında performans göstermeye alışkındır.",
       "communication": "Bilkent Üniversitesi Tanıtım Ofisi'ndeki ve özel ders öğretmenliği deneyimleri sayesinde teknik konuları teknik olmayan kişilere de net bir şekilde açıklayabilir. Ekip çalışmasına ve bilgi paylaşımına önem verir."
-    }
+    },
+    "career_goals": {
+      "why_devops": "Yazılım geliştirme (Dev) ile sistem yönetimi (Ops) arasındaki köprüyü kurmayı seviyor. Sadece kod yazmak değil, o kodun milyonlarca kullanıcıya kesintisiz ulaşmasını sağlayan mimariyi kurmak ilgisini çekiyor.",
+      "goal": "Gelecekte Cloud Native teknolojilerde uzmanlaşmış, ölçeklenebilir sistemler tasarlayan bir Cloud Architect olmayı hedefliyor."
+    },
+    "challenge_story": "Portakal Teknoloji stajında, Kubernetes cluster'ları arasında veri iletiminde beklenmedik bir şifreleme hatasıyla karşılaştı. Sorunu çözmek için logları analiz etti, hatanın sertifika uyumsuzluğundan kaynaklandığını buldu ve ekibiyle iletişim kurarak manuel bir 'handshake' mekanizması geliştirdi. Bu süreç ona hata ayıklama (debugging) ve kriz anında sakin kalma yetisi kazandırdı."
   },
+  "projects": [
+    {
+      "name": "EduGraph (YKS Koçluk Platformu)",
+      "tech": ["Python", "AI", "Knowledge Graphs", "Web Development"],
+      "description": "Takım arkadaşlarıyla geliştirmekte olduğu AI destekli bir eğitim platformu. Öğrencilerin öğrenme hedeflerini interaktif bilgi grafikleri (Knowledge Graph) ile görselleştirerek kişiselleştirilmiş YKS koçluğu sağlıyor."
+    },
+    {
+      "name": "ask-ilgin (AI Dijital İkiz)",
+      "tech": ["Python", "Streamlit", "Google Gemini API", "RAG"],
+      "description": "Kendi profesyonel deneyimlerini ve CV verilerini interaktif bir şekilde sunan yapay zeka tabanlı bir web uygulaması. Retrieval-Augmented Generation (RAG) mimarisini kullanarak sorulara kişiselleştirilmiş yanıtlar verir."
+    },
+    {
+      "name": "WastlessWorld",
+      "tech": ["PHP", "SQL", "Database Design"],
+      "description": "Tüketicileri ve marketleri buluşturan bir pazar yeri uygulaması. PHP ve SQL kullanılarak geliştirildi. Güvenli kullanıcı kimlik doğrulaması (authentication), ürün yönetimi ve alışveriş sepeti operasyonlarını içerir."
+    },
+    {
+      "name": "Rocket-Simulator",
+      "tech": ["C++", "Physics Engine", "OOP"],
+      "description": "Roket yörüngelerini modellemek için C++ ile geliştirilmiş bir fizik simülasyonu. Nesne Yönelimli Programlama (OOP) prensiplerini ve karmaşık matematiksel hesaplamaları içerir."
+    },
+    {
+      "name": "BookIT",
+      "tech": ["Java", "System Design"],
+      "description": "Java kullanılarak geliştirilmiş kapsamlı bir kitap/kütüphane yönetim sistemi. Veri yapıları ve algoritma mantığını, kullanıcı dostu bir arayüz ile birleştirir."
+    }
+  ],
   "experience": [
     {
       "company": "Online (Turkey & Balkans) Social Office",
