@@ -52,7 +52,7 @@ if prompt_input and api_key:
 
     try:
         response = client.generate_content(
-            model="models/gemini-1.5-flash",
+            model="models/gemini-1.5-flash-001",
             contents=[Content(parts=[{"text": system_prompt}])]
         )
 
