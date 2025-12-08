@@ -101,7 +101,7 @@ if prompt_input and api_key:
     client = genai.Client(api_key=api_key)
 
     # 🔥 DOĞRU MODEL — free tier çalışır
-    MODEL_NAME = "models/gemini-1.5-flash-8b"
+    MODEL_NAME = "gemini-pro"
 
     system_prompt = f"""
     Sen Ilgın Tandoğan’ı temsil eden profesyonel, samimi, motive edici ve zeki bir AI asistanısın.
