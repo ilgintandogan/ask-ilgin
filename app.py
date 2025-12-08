@@ -85,7 +85,7 @@ with col8:
         st.session_state.prompt_input = "Ilgın'ın çözdüğü teknik bir sorunu anlat."
 
 with col9:
-    if st.button("🚀 Kendini Geliştirme"):
+    if st.button("🚀 Kendini Geliştiriyor"):
         st.session_state.prompt_input = "Ilgın kendini geliştirmek için neler yapıyor?"
 
 # Manuel soru
@@ -100,13 +100,13 @@ if prompt_input and api_key:
 
     client = genai.Client(api_key=api_key)
 
-    # 🔥 V1alpha ile çalışan tek model (garantili)
-    MODEL_NAME = "models/text-bison-001"
+    # 🔥 Streamlit Cloud'un şu an desteklediği model
+    MODEL_NAME = "gemini-1.5-flash"
 
     system_prompt = f"""
     Sen Ilgın Tandoğan'ın dijital ikizisin.
     Aşağıdaki CV verilerini temel alarak işverenlere profesyonel ve akıcı cevaplar ver.
-    
+
     CV VERİSİ:
     {json.dumps(cv_data, ensure_ascii=False)}
 
@@ -116,12 +116,18 @@ if prompt_input and api_key:
 
     with st.spinner("Ilgın'ın hafızası taranıyor..."):
         try:
-            response = client.models.generate_text(
+            response = client.models.generate_content(
                 model=MODEL_NAME,
-                prompt=system_prompt
+                contents=system_prompt
             )
 
-            answer = response.result
+            # Yanıt okuma
+            answer = getattr(response, "text", None)
+            if not answer:
+                try:
+                    answer = response.candidates[0].content.parts[0].text
+                except Exception:
+                    answer = str(response)
 
             st.markdown(f"**Soru:** {prompt_input}")
             st.markdown("---")
