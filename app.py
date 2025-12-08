@@ -104,7 +104,7 @@ prompt_input = st.session_state.get("prompt_input", None)
 # ---- AI CEVAP MEKANİZMASI ----
 if prompt_input and api_key:
     client = genai.Client(api_key=api_key)
-    MODEL_NAME = "gemini-2.0-flash" 
+    MODEL_NAME = "gemini-1.5-flash" 
 
     system_prompt = f"""
     Sen Ilgın Tandoğan'ı temsil eden profesyonel, samimi ve zeki bir AI asistanısın.
