@@ -21,8 +21,6 @@ with st.sidebar:
     st.write("📧 ilgintandogan@gmail.com")
     st.write("[LinkedIn](http://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
     
-    
-
     # API Key alma
     api_key = st.secrets.get("GEMINI_API_KEY", None) or st.text_input("Google Gemini API Key", type="password")
 
@@ -63,17 +61,16 @@ with col2:
 
 with col3:
     if st.button("📚 Projeler (EduGraph, Web, Mobil)", help="Okul ve Kişisel Projeler"):
-        # BURASI DEĞİŞTİ: EduGraph ve WastlessWorld için özel komut ekledim
-        st.session_state.prompt_input = "Ilgın'ın geliştirdiği en önemli proje olan EduGraph (YKS Koçu), WastlessWorld (PHP/SQL Web) ve Android Studio mobil uygulama projelerini detaylı anlat."
+        st.session_state.prompt_input = "Ilgın'ın geliştirdiği en önemli proje olan EduGraph (AI YKS Koçu), WastlessWorld (PHP/SQL Web) ve Android Studio mobil uygulama projelerini detaylı anlat."
 
 # 2. Satır: Soft Skills & Karakter
 with col4:
     if st.button("🧠 Karakter & Soft Skills", help="Nasıl biridir?"):
-        st.session_state.prompt_input = "Ilgın'ın karakteri, stres yönetimi ve çalışma disiplini nasıldır? Sporcu geçmişinin iş hayatına etkisi nedir?"
+        st.session_state.prompt_input = "Ilgın'ın karakteri, çalışma disiplini, stres yönetimi ve spor geçmişinin iş hayatına etkisi nedir?"
 
 with col5:
     if st.button("🎓 Eğitmenlik & Liderlik", help="Mentörlük deneyimi"):
-        st.session_state.prompt_input = "Ilgın'ın özel ders verme (Adaptive Teaching) yeteneği ve öğrencilere yaklaşımı nasıldır?"
+        st.session_state.prompt_input = "Ilgın'ın özel ders verme (Adaptive Learning) yeteneği ve öğrencilere yaklaşımı nasıldır?"
 
 with col6:
     if st.button("❤️ Sosyal Sorumluluk", help="Gunkoy Projesi"):
@@ -86,42 +83,34 @@ with col7:
 
 with col8:
     if st.button("💡 Bir Zorluk & Çözümü", help="Problem çözme yeteneği"):
-        st.session_state.prompt_input = "Ilgın'ın teknik bir zorlukla karşılaştığı (örneğin Portakal stajındaki hata) ve bunu nasıl çözdüğüyle ilgili bir anısını anlat."
+        st.session_state.prompt_input = "Ilgın'ın bir teknik sorunla karşılaşıp çözdüğü bir anısını anlat."
 
 with col9:
     if st.button("🚀 Kendini Nasıl Geliştiriyor?", help="Sertifikalar ve Hobiler"):
-        st.session_state.prompt_input = "Ilgın kendini güncel tutmak için neler yapıyor? Yeni stajı, sertifikaları ve hobileri neler?"
+        st.session_state.prompt_input = "Ilgın kendini güncel tutmak için neler yapıyor? Sertifikaları, hobileri ve yeni staj planları nelerdir?"
 
-
-# Chat input (Manuel soru sorma)
+# Manuel soru
 user_question = st.chat_input("Veya buraya kendi sorunuzu yazın...")
 if user_question:
     st.session_state.prompt_input = user_question
 
-# Prompt'u değişkene alalım
 prompt_input = st.session_state.get("prompt_input", None)
 
 # ---- AI CEVAP MEKANİZMASI ----
 if prompt_input and api_key:
     client = genai.Client(api_key=api_key)
-    MODEL_NAME = "gemini-1.5-flash" 
+
+    # 🔥 DOĞRU MODEL — free tier çalışır
+    MODEL_NAME = "models/gemini-1.5-flash-8b"
 
     system_prompt = f"""
-    Sen Ilgın Tandoğan'ı temsil eden profesyonel, samimi ve zeki bir AI asistanısın.
-    Amacın, işverenlere Ilgın'ın hem teknik becerilerini hem de karakterini en iyi şekilde satmak.
-    
+    Sen Ilgın Tandoğan’ı temsil eden profesyonel, samimi, motive edici ve zeki bir AI asistanısın.
+    Amacın, işverenlere Ilgın'ın hem teknik becerilerini hem de karakterini en iyi şekilde aktarmak.
     Aşağıdaki JSON verisini KESİNLİKLE temel al.
-    
-    ÖNEMLİ: Projeler sorulduğunda şu sırayla ve detayla anlat:
-    1. EduGraph: En önemli projesidir (AI YKS Koçu).
-    2. WastlessWorld: Web tabanlı PHP/SQL projesidir (Market/Tüketici sistemi).
-    3. Android Projeleri: Android Studio ve Kotlin ile yapılanlar.
-    
-    Cevapların akıcı, motive edici ve Türkçe olsun.
     
     CV VERİSİ:
     {json.dumps(cv_data, ensure_ascii=False)}
-    
+
     SORU:
     {prompt_input}
     """
