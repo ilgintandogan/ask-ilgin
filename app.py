@@ -45,49 +45,48 @@ except FileNotFoundError:
     st.stop()
 
 # --- ÖZELLEŞTİRİLMİŞ BUTONLAR (3x3 Düzen) ---
-
 col1, col2, col3 = st.columns(3)
 col4, col5, col6 = st.columns(3)
 col7, col8, col9 = st.columns(3)
 
-# 1. Satır: En Önemli Deneyimler
+# 1. Satır
 with col1:
-    if st.button("🍊 Portakal Tech Deneyimi", help="Staj detayları"):
-        st.session_state.prompt_input = "Portakal Technology stajında hangi teknolojileri kullandı? Özellikle 'şifresiz deployment' ve 'multi-node' çalışmalarını detaylı anlat."
+    if st.button("🍊 Portakal Tech Deneyimi"):
+        st.session_state.prompt_input = "Portakal Technology stajında hangi teknolojileri kullandı?"
 
 with col2:
-    if st.button("🛠 Teknik Yetkinlikler", help="Araçlar ve Diller"):
-        st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri, DevOps araçları (Kubernetes, OpenStack vb.) ve Cloud teknolojileri nelerdir?"
+    if st.button("🛠 Teknik Yetkinlikler"):
+        st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri ve DevOps teknolojileri nelerdir?"
 
 with col3:
-    if st.button("📚 Projeler (EduGraph, Web, Mobil)", help="Okul ve Kişisel Projeler"):
-        st.session_state.prompt_input = "Ilgın'ın geliştirdiği en önemli proje olan EduGraph (AI YKS Koçu), WastlessWorld (PHP/SQL Web) ve Android Studio mobil uygulama projelerini detaylı anlat."
+    if st.button("📚 Projeler"):
+        st.session_state.prompt_input = "EduGraph, WastlessWorld ve Android projelerini detaylı açıkla."
 
-# 2. Satır: Soft Skills & Karakter
+# 2. Satır
 with col4:
-    if st.button("🧠 Karakter & Soft Skills", help="Nasıl biridir?"):
-        st.session_state.prompt_input = "Ilgın'ın karakteri, çalışma disiplini, stres yönetimi ve spor geçmişinin iş hayatına etkisi nedir?"
+    if st.button("🧠 Soft Skills"):
+        st.session_state.prompt_input = "Ilgın'ın karakteri ve çalışma disiplini nasıldır?"
 
 with col5:
-    if st.button("🎓 Eğitmenlik & Liderlik", help="Mentörlük deneyimi"):
-        st.session_state.prompt_input = "Ilgın'ın özel ders verme (Adaptive Learning) yeteneği ve öğrencilere yaklaşımı nasıldır?"
+    if st.button("🎓 Eğitmenlik"):
+        st.session_state.prompt_input = "Ilgın'ın özel ders verme yaklaşımı nasıldır?"
 
 with col6:
-    if st.button("❤️ Sosyal Sorumluluk", help="Gunkoy Projesi"):
-        st.session_state.prompt_input = "Gunkoy projesinde köy okulları için neler yaptı? Gece okulda kalıp boya yapması ve fiziksel katkıları gibi detayları anlat."
+    if st.button("❤️ Sosyal Sorumluluk"):
+        st.session_state.prompt_input = "Gunkoy projesinde neler yaptı?"
 
-# 3. Satır: Vizyon & Problem Çözme
+# 3. Satır
 with col7:
-    if st.button("🎯 Neden DevOps?", help="Kariyer Hedefi"):
-        st.session_state.prompt_input = "Ilgın neden DevOps alanını seçti? Kariyer hedefi nedir ve neden bu alanda başarılı olacağını düşünüyor?"
+    if st.button("🎯 Neden DevOps?"):
+        st.session_state.prompt_input = "Ilgın neden DevOps alanını seçmiştir?"
 
 with col8:
-    if st.button("💡 Bir Zorluk & Çözümü", help="Problem çözme yeteneği"):
-        st.session_state.prompt_input = "Ilgın'ın bir teknik sorunla karşılaşıp çözdüğü bir anısını anlat."
+    if st.button("💡 Zorluk & Çözüm"):
+        st.session_state.prompt_input = "Ilgın'ın çözdüğü teknik bir sorunu anlat."
 
 with col9:
-    if st.button("🚀 Kendini Nasıl Geliştiriyor?", help="Sertifikalar ve Hobiler"):
-        st.session_state.prompt_input = "Ilgın kendini güncel tutmak için neler yapıyor? Sertifikaları, hobileri ve yeni staj planları nelerdir?"
+    if st.button("🚀 Kendini Geliştirme"):
+        st.session_state.prompt_input = "Ilgın kendini geliştirmek için neler yapıyor?"
 
 # Manuel soru
 user_question = st.chat_input("Veya buraya kendi sorunuzu yazın...")
@@ -98,15 +97,15 @@ prompt_input = st.session_state.get("prompt_input", None)
 
 # ---- AI CEVAP MEKANİZMASI ----
 if prompt_input and api_key:
+
     client = genai.Client(api_key=api_key)
 
-    # 🔥 DOĞRU MODEL — free tier çalışır
-    MODEL_NAME = "gemini-pro"
+    # 🔥 V1alpha ile çalışan tek model (garantili)
+    MODEL_NAME = "models/text-bison-001"
 
     system_prompt = f"""
-    Sen Ilgın Tandoğan’ı temsil eden profesyonel, samimi, motive edici ve zeki bir AI asistanısın.
-    Amacın, işverenlere Ilgın'ın hem teknik becerilerini hem de karakterini en iyi şekilde aktarmak.
-    Aşağıdaki JSON verisini KESİNLİKLE temel al.
+    Sen Ilgın Tandoğan'ın dijital ikizisin.
+    Aşağıdaki CV verilerini temel alarak işverenlere profesyonel ve akıcı cevaplar ver.
     
     CV VERİSİ:
     {json.dumps(cv_data, ensure_ascii=False)}
@@ -117,17 +116,12 @@ if prompt_input and api_key:
 
     with st.spinner("Ilgın'ın hafızası taranıyor..."):
         try:
-            response = client.models.generate_content(
+            response = client.models.generate_text(
                 model=MODEL_NAME,
-                contents=system_prompt
+                prompt=system_prompt
             )
 
-            answer = getattr(response, "text", None)
-            if not answer:
-                try:
-                    answer = response.output[0].content[0].text
-                except Exception:
-                    answer = str(response)
+            answer = response.result
 
             st.markdown(f"**Soru:** {prompt_input}")
             st.markdown("---")
