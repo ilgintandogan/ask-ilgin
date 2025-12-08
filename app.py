@@ -24,6 +24,7 @@ with st.sidebar:
     # API Key alma
     api_key = st.secrets.get("GEMINI_API_KEY", None) or st.text_input("Google Gemini API Key", type="password")
 
+
 # --- ANA EKRAN ---
 st.title("Merhaba! Ben Ilgın'ın Dijital İkiziyim 👋")
 
@@ -32,6 +33,7 @@ Ben, Ilgın'ın **CV verileri, proje deneyimleri ve kişisel özellikleriyle** e
 Ilgın'ın teknik yetkinliklerinin yanı sıra **kariyer hedefleri, proje detayları ve çalışma disiplini** hakkında da bana soru sorabilirsiniz.
 """)
 st.markdown("---")
+
 
 # JSON Verisini Yükle
 def load_data():
@@ -44,7 +46,9 @@ except FileNotFoundError:
     st.error("data.json dosyası bulunamadı! Lütfen GitHub'a yüklediğinden emin ol.")
     st.stop()
 
-# --- ÖZELLEŞTİRİLMİŞ BUTONLAR (3x3 Düzen) ---
+
+# --- 3x3 BUTON SİSTEMİ ---
+
 col1, col2, col3 = st.columns(3)
 col4, col5, col6 = st.columns(3)
 col7, col8, col9 = st.columns(3)
@@ -52,62 +56,67 @@ col7, col8, col9 = st.columns(3)
 # 1. Satır
 with col1:
     if st.button("🍊 Portakal Tech Deneyimi"):
-        st.session_state.prompt_input = "Portakal Technology stajında hangi teknolojileri kullandı?"
+        st.session_state.prompt_input = "Portakal Technology stajında hangi teknolojileri kullandı? Özellikle 'şifresiz deployment' ve 'multi-node' çalışmalarını detaylı anlat."
 
 with col2:
     if st.button("🛠 Teknik Yetkinlikler"):
-        st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri ve DevOps teknolojileri nelerdir?"
+        st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri, DevOps araçları (Kubernetes, OpenStack vb.) ve Cloud teknolojileri nelerdir?"
 
 with col3:
-    if st.button("📚 Projeler"):
-        st.session_state.prompt_input = "EduGraph, WastlessWorld ve Android projelerini detaylı açıkla."
+    if st.button("📚 Projeler (EduGraph, Web, Mobil)"):
+        st.session_state.prompt_input = "Ilgın'ın geliştirdiği EduGraph (YKS Koçu), WastlessWorld (PHP/SQL Web) ve Android Studio mobil uygulama projelerini detaylı anlat."
+
 
 # 2. Satır
 with col4:
-    if st.button("🧠 Soft Skills"):
-        st.session_state.prompt_input = "Ilgın'ın karakteri ve çalışma disiplini nasıldır?"
+    if st.button("🧠 Karakter & Soft Skills"):
+        st.session_state.prompt_input = "Ilgın'ın karakteri, stres yönetimi ve çalışma disiplini nasıldır?"
 
 with col5:
-    if st.button("🎓 Eğitmenlik"):
-        st.session_state.prompt_input = "Ilgın'ın özel ders verme yaklaşımı nasıldır?"
+    if st.button("🎓 Eğitmenlik & Liderlik"):
+        st.session_state.prompt_input = "Ilgın'ın özel ders verme yeteneğini ve öğrencilere yaklaşımını anlat."
 
 with col6:
     if st.button("❤️ Sosyal Sorumluluk"):
-        st.session_state.prompt_input = "Gunkoy projesinde neler yaptı?"
+        st.session_state.prompt_input = "Gunkoy projesinde köy okulları için neler yaptı? Detaylı anlat."
+
 
 # 3. Satır
 with col7:
     if st.button("🎯 Neden DevOps?"):
-        st.session_state.prompt_input = "Ilgın neden DevOps alanını seçmiştir?"
+        st.session_state.prompt_input = "Ilgın neden DevOps alanını seçti?"
 
 with col8:
-    if st.button("💡 Zorluk & Çözüm"):
-        st.session_state.prompt_input = "Ilgın'ın çözdüğü teknik bir sorunu anlat."
+    if st.button("💡 Bir Zorluk & Çözüm"):
+        st.session_state.prompt_input = "Ilgın'ın teknik bir zorluk yaşadığı ve bunu nasıl çözdüğüyle ilgili bir örnek anlat."
 
 with col9:
-    if st.button("🚀 Kendini Geliştiriyor"):
-        st.session_state.prompt_input = "Ilgın kendini geliştirmek için neler yapıyor?"
+    if st.button("🚀 Gelişim & Sertifikalar"):
+        st.session_state.prompt_input = "Ilgın kendini nasıl geliştiriyor? Sertifikalarını ve hobilerini anlat."
 
-# Manuel soru
+
+# Manuel Soru Alanı
 user_question = st.chat_input("Veya buraya kendi sorunuzu yazın...")
 if user_question:
     st.session_state.prompt_input = user_question
 
+
 prompt_input = st.session_state.get("prompt_input", None)
 
+
 # ---- AI CEVAP MEKANİZMASI ----
+
 if prompt_input and api_key:
 
     client = genai.Client(api_key=api_key)
 
-    # 🔥 Streamlit Cloud'un şu an desteklediği model
-    MODEL_NAME = "gemini-1.5-flash"
+    # ❗Google'ın v1beta genai clientı için DOĞRU MODEL:
+    MODEL_NAME = "models/gemini-1.5-flash-latest"
 
     system_prompt = f"""
-    Sen Ilgın Tandoğan'ın dijital ikizisin.
-    Aşağıdaki CV verilerini temel alarak işverenlere profesyonel ve akıcı cevaplar ver.
+    Sen Ilgın Tandoğan'ı temsil eden profesyonel, samimi ve zeki bir AI asistanısın.
 
-    CV VERİSİ:
+    CV verisini temel alarak yanıt üret:
     {json.dumps(cv_data, ensure_ascii=False)}
 
     SORU:
@@ -121,16 +130,14 @@ if prompt_input and api_key:
                 contents=system_prompt
             )
 
-            # Yanıt okuma
             answer = getattr(response, "text", None)
             if not answer:
                 try:
-                    answer = response.candidates[0].content.parts[0].text
-                except Exception:
+                    answer = response.output[0].content[0].text
+                except:
                     answer = str(response)
 
-            st.markdown(f"**Soru:** {prompt_input}")
-            st.markdown("---")
+            st.markdown(f"### Soru: {prompt_input}")
             st.markdown(answer)
 
             st.session_state.prompt_input = None
