@@ -2,14 +2,13 @@ import streamlit as st
 from openai import OpenAI
 import json
 
-# Streamlit ayarları
+# ---- Streamlit Ayarları ----
 st.set_page_config(page_title="Ilgın Tandoğan - Dijital İkiz", page_icon="🤖", layout="wide")
 
-# Session
 if "prompt_input" not in st.session_state:
     st.session_state.prompt_input = None
 
-# Sidebar
+# ---- Sidebar ----
 with st.sidebar:
     try:
         st.image("ilgin.jpg", caption="Ilgın Tandoğan", width=150)
@@ -18,32 +17,28 @@ with st.sidebar:
 
     st.write("📍 Ankara, Türkiye")
     st.write("📧 ilgintandogan@gmail.com")
-    st.write("[LinkedIn](https://www.linkedin.com/in/ilgintandogan) | [GitHub](https://github.com/ilgintandogan)")
+    st.write("[LinkedIn](https://linkedin.com/in/ilgintandogan)")
+    st.write("[GitHub](https://github.com/ilgintandogan)")
 
-    api_key = st.secrets.get("OPENAI_API_KEY", None) or st.text_input("OpenAI API Key", type="password")
+    api_key = st.secrets.get("OPENAI_API_KEY") or st.text_input("OpenAI API Key", type="password")
 
-# Başlık
+# ---- Başlık ----
 st.title("Merhaba! Ben Ilgın'ın Dijital İkiziyim 👋")
-
 st.markdown("""
-Ben, Ilgın'ın **CV verileri, proje deneyimleri ve kariyer geçmişiyle** eğitilmiş kişisel bir yapay zekayım.  
-Bana Ilgın hakkında teknik, kariyer, karakter ve proje soruları sorabilirsin!
+Ben, Ilgın'ın **CV verileri, proje deneyimleri ve kişisel özellikleriyle** eğitilmiş bir yapay zekâyım.  
+Bana teknik, kariyer veya kişisel sorular sorabilirsin!
 """)
 st.markdown("---")
 
-# JSON data yükleme
+# ---- JSON Yükleme ----
 def load_data():
     with open("data.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
-try:
-    cv_data = load_data()
-except:
-    st.error("data.json bulunamadı! GitHub'a yüklediğinden emin ol.")
-    st.stop()
+cv_data = load_data()
 
 # ----------------------------------------------------------
-# BUTONLAR (9'lu grid)
+#                BUTONLI HAZIR SORULAR (3x3 GRID)
 # ----------------------------------------------------------
 
 col1, col2, col3 = st.columns(3)
@@ -52,72 +47,80 @@ col7, col8, col9 = st.columns(3)
 
 with col1:
     if st.button("🍊 Portakal Tech Deneyimi"):
-        st.session_state.prompt_input = "Ilgın Portakal Teknoloji stajında ne yaptı? Kubernetes, k0s, k0rdent ve network sorunlarını örneklerle açıkla."
+        st.session_state.prompt_input = "Ilgın Portakal Teknoloji stajında neler yaptı? Kubernetes, k0s, k0rdent ve ağ problemlerini detaylı anlat."
 
 with col2:
     if st.button("🛠 Teknik Yetkinlikler"):
-        st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri, DevOps araçları ve cloud teknolojilerini detaylı listele."
+        st.session_state.prompt_input = "Ilgın'ın bildiği programlama dilleri, DevOps araçları ve cloud teknolojilerini listele."
 
 with col3:
-    if st.button("📚 Projeler"):
-        st.session_state.prompt_input = "Ilgın'ın EduGraph, WastlessWorld ve Android projelerini detaylı açıkla."
+    if st.button("📚 Projeler (EduGraph, Web, Android)"):
+        st.session_state.prompt_input = "Ilgın'ın EduGraph, WastlessWorld ve Android projelerini detaylandır."
 
 with col4:
     if st.button("🧠 Karakter & Soft Skills"):
-        st.session_state.prompt_input = "Ilgın'ın karakter özelliklerini, disiplinini ve çalışma tarzını açıkla."
+        st.session_state.prompt_input = "Ilgın'ın iş disiplini, güçlü yönleri ve soft skills özellikleri nelerdir?"
 
 with col5:
     if st.button("🎓 Liderlik & Mentorluk"):
-        st.session_state.prompt_input = "Ilgın'ın özel ders tecrübesi ve mentorluk stilini açıkla."
+        st.session_state.prompt_input = "Ilgın'ın özel ders deneyimi ve mentorluk yaklaşımını açıkla."
 
 with col6:
-    if st.button("❤️ Sosyal Sorumluluk (Günkoy)"):
-        st.session_state.prompt_input = "Ilgın'ın Günkoy projesinde yaptığı işleri ve katkılarını anlat."
+    if st.button("❤️ Günkoy Projesi"):
+        st.session_state.prompt_input = "Ilgın'ın Günkoy projesindeki katkılarını detaylandır."
 
 with col7:
     if st.button("🎯 Neden DevOps?"):
-        st.session_state.prompt_input = "Ilgın neden DevOps alanını seçti? Kariyer vizyonunu anlat."
+        st.session_state.prompt_input = "Ilgın neden DevOps alanına yöneldi? Kariyer vizyonu nedir?"
 
 with col8:
-    if st.button("💡 Zorluk & Çözüm"):
-        st.session_state.prompt_input = "Ilgın'ın teknik bir sorunla karşılaşıp çözdüğü bir örneği anlat."
+    if st.button("💡 Zorluk & Çözüm Örneği"):
+        st.session_state.prompt_input = "Ilgın'ın yaşadığı bir teknik problemi nasıl çözdüğünü örnekle anlat."
 
 with col9:
-    if st.button("🚀 Kendini Nasıl Geliştiriyor?"):
-        st.session_state.prompt_input = "Ilgın'ın sertifikaları, hobileri ve gelişim planını açıkla."
+    if st.button("🚀 Kişisel Gelişim Planı"):
+        st.session_state.prompt_input = "Ilgın sertifikalar, hobiler ve kendini geliştirme açısından neler yapıyor?"
 
 # ----------------------------------------------------------
-# Manuel Soru
+#                   MANUEL SORU ALANI
 # ----------------------------------------------------------
 
-user_question = st.chat_input("Bir soru yaz...")
+user_question = st.chat_input("Bir soru yaz…")
 if user_question:
     st.session_state.prompt_input = user_question
 
 prompt_input = st.session_state.prompt_input
 
 # ----------------------------------------------------------
-# OpenAI API ile Yanıt Üretme
+#                  AI CEVAP ÜRETME
 # ----------------------------------------------------------
 
 if prompt_input and api_key:
+
     client = OpenAI(api_key=api_key)
 
     SYSTEM_PROMPT = f"""
-Sen Ilgın Tandoğan'ın kişisel dijital ikizisin.
+    Sen Ilgın Tandoğan'ın kişisel dijital ikizisin.
+    Profesyonel, samimi, akıcı ve güven veren bir üslupla cevap verirsin.
 
-Görevlerin:
-- Ilgın'ın CV verilerine dayanarak profesyonel, tutarlı ve etkileyici yanıtlar üret.
-- İşverenlere yönelik güçlü açıklamalar yap.
-- Teknik konuları örneklerle anlat.
-- Projelerden özellikle şu sırayla bahset:
-  1. EduGraph (AI YKS koçu)
-  2. WastlessWorld (PHP/SQL web sistemi)
-  3. Android Studio projeleri
+    Aşağıda Ilgın'ın CV verileri bulunmaktadır.
+    Tüm cevaplarını bu verilere dayandır:
 
-CV verisi:
-{json.dumps(cv_data, ensure_ascii=False)}
-"""
+    {json.dumps(cv_data, ensure_ascii=False, indent=2)}
+
+    Projeleri şu öncelikle anlat:
+    1. EduGraph (AI YKS Koçu)
+    2. WastlessWorld (PHP/SQL)
+    3. Android Studio projeleri
+
+    Teknik detay sorulursa açıklayıcı ol.
+    Kariyer sorulursa yönlendirici ol.
+    Soft skills sorulursa motive edici ol.
+    """
+
+ 
+    status = st.empty()
+    status.markdown("🤔 **Düşünüyorum… Lütfen bekleyin**")
 
     try:
         completion = client.chat.completions.create(
@@ -130,11 +133,14 @@ CV verisi:
 
         answer = completion.choices[0].message.content
 
-        st.markdown(f"### ❓ Soru: {prompt_input}")
+        status.empty()  # düşünme mesajını kaldır
+
+        st.markdown(f"### ❓ Soru: **{prompt_input}**")
         st.markdown("---")
         st.markdown(answer)
 
         st.session_state.prompt_input = None
 
     except Exception as e:
+        status.empty()
         st.error(f"Bir hata oluştu: {e}")
