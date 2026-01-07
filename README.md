@@ -4,7 +4,7 @@ Welcome to my interactive resume! I built this AI-powered application to demonst
 
 Instead of reading a static PDF, you can chat with this AI to learn about my **DevOps experience, certifications, and technical skills.**
 
-🔗 **Live Demo:** [Click here to chat with my AI][(BURAYA_STREAMLIT_LINKINI_YAPISTIRACAKSIN)](https://ask-ilgin.streamlit.app)
+🔗 **Live Demo:** https://ask-ilgin.streamlit.app
 
 ## 🚀 How It Works
 This project uses **RAG (Retrieval-Augmented Generation)** principles:
