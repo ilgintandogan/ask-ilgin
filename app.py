@@ -2,13 +2,13 @@ import streamlit as st
 from openai import OpenAI
 import json
 
-# ---- Streamlit Ayarları ----
+
 st.set_page_config(page_title="Ilgın Tandoğan - Dijital İkiz", page_icon="🤖", layout="wide")
 
 if "prompt_input" not in st.session_state:
     st.session_state.prompt_input = None
 
-# ---- Sidebar ----
+
 with st.sidebar:
     try:
         st.image("ilgin.jpg", caption="Ilgın Tandoğan", width=150)
@@ -22,7 +22,7 @@ with st.sidebar:
 
     api_key = st.secrets.get("OPENAI_API_KEY") or st.text_input("OpenAI API Key", type="password")
 
-# ---- Başlık ----
+
 st.title("Merhaba! Ben Ilgın'ın Dijital İkiziyim 👋")
 st.markdown("""
 Ben, Ilgın'ın **CV verileri, proje deneyimleri ve kişisel özellikleriyle** eğitilmiş bir yapay zekâyım.  
@@ -30,16 +30,14 @@ Bana teknik, kariyer veya kişisel sorular sorabilirsin!
 """)
 st.markdown("---")
 
-# ---- JSON Yükleme ----
+
 def load_data():
     with open("data.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 cv_data = load_data()
 
-# ----------------------------------------------------------
-#                BUTONLI HAZIR SORULAR (3x3 GRID)
-# ----------------------------------------------------------
+
 
 col1, col2, col3 = st.columns(3)
 col4, col5, col6 = st.columns(3)
@@ -81,9 +79,7 @@ with col9:
     if st.button("🚀 Kişisel Gelişim Planı"):
         st.session_state.prompt_input = "Ilgın sertifikalar, hobiler ve kendini geliştirme açısından neler yapıyor?"
 
-# ----------------------------------------------------------
-#                   MANUEL SORU ALANI
-# ----------------------------------------------------------
+
 
 user_question = st.chat_input("Bir soru yaz…")
 if user_question:
@@ -91,9 +87,6 @@ if user_question:
 
 prompt_input = st.session_state.prompt_input
 
-# ----------------------------------------------------------
-#                  AI CEVAP ÜRETME
-# ----------------------------------------------------------
 
 if prompt_input and api_key:
 
@@ -109,7 +102,7 @@ if prompt_input and api_key:
     {json.dumps(cv_data, ensure_ascii=False, indent=2)}
 
     Projeleri şu öncelikle anlat:
-    1. EduGraph (AI YKS Koçu)
+    1. BAYKOÇ (AI YKS Koçu)
     2. WastlessWorld (PHP/SQL)
     3. Android Studio projeleri
 
@@ -133,7 +126,7 @@ if prompt_input and api_key:
 
         answer = completion.choices[0].message.content
 
-        status.empty()  # düşünme mesajını kaldır
+        status.empty()  
 
         st.markdown(f"### ❓ Soru: **{prompt_input}**")
         st.markdown("---")
