@@ -1,143 +1,194 @@
 {
   "profile": {
     "name": "Ilgın Tandoğan",
-    "title": "CTIS Student & DevOps Enthusiast",
+    "title": "CTIS Student | Generative AI, Cloud & DevOps",
     "location": "Ankara, Türkiye",
     "contact": {
       "email": "ilgintandogan@gmail.com",
-      "linkedin": "http://www.linkedin.com/in/ilgintandogan",
-      "github": "https://github.com/ilgintandogan"
+      "linkedin": "https://www.linkedin.com/in/ilgintandogan",
+      "github": "https://github.com/ilgintandogan",
+      "portfolio": "https://ask-ilgin.streamlit.app",
+      "project": "https://baykoc.net"
     },
-    "summary": "Bilkent Üniversitesi CTIS 3. sınıf öğrencisi. Bulut tabanlı teknolojiler, sistem altyapısı ve DevOps konularına odaklı. Teknik becerilerini insan odaklı problem çözme yaklaşımıyla birleştiren, disiplinli ve öğrenmeye hevesli bir mühendis adayı.",
-    "education": {
-      "university": "Bilkent University",
-      "department": "Computer Technologies and Information Systems (CTIS)",
-      "degree": "Lisans",
-      "cgpa": "3.33/4.00",
-      "dates": "2022 - Devam Ediyor",
-      "high_school": "Bahcesehir Science High School (2021-2022), Sehit Mustafa Serin Science High School (2018-2021)"
-    },
-    "personality_and_soft_skills": {
-      "working_style": "Disiplinli, detay odaklı ve çözüm merkezli. Eski bir lisanslı yüzücü ve satranç oyuncusu olarak stratejik düşünme ve uzun süreli odaklanma konusunda yetenekli.",
-      "stress_management": "Stresli durumlarda soğukkanlılığını korur. Karmaşık problemleri daha küçük, yönetilebilir parçalara bölerek (divide and conquer) çözer. Sporcu geçmişinden gelen disiplinle baskı altında performans göstermeye alışkındır.",
-      "communication": "Bilkent Üniversitesi Tanıtım Ofisi'ndeki ve özel ders öğretmenliği deneyimleri sayesinde teknik konuları teknik olmayan kişilere de net bir şekilde açıklayabilir. Ekip çalışmasına ve bilgi paylaşımına önem verir."
-    },
-    "career_goals": {
-      "why_devops": "Yazılım geliştirme (Dev) ile sistem yönetimi (Ops) arasındaki köprüyü kurmayı seviyor. Sadece kod yazmak değil, o kodun milyonlarca kullanıcıya kesintisiz ulaşmasını sağlayan mimariyi kurmak ilgisini çekiyor.",
-      "goal": "Gelecekte Cloud Native teknolojilerde uzmanlaşmış, ölçeklenebilir sistemler tasarlayan bir Cloud Architect olmayı hedefliyor."
-    },
-    "challenge_story": "Portakal Teknoloji stajında, Kubernetes cluster'ları arasında veri iletiminde beklenmedik bir şifreleme hatasıyla karşılaştı. Sorunu çözmek için logları analiz etti, hatanın sertifika uyumsuzluğundan kaynaklandığını buldu ve ekibiyle iletişim kurarak manuel bir 'handshake' mekanizması geliştirdi. Bu süreç ona hata ayıklama (debugging) ve kriz anında sakin kalma yetisi kazandırdı."
+    "summary": "Bilkent University CTIS student with hands-on experience in Generative AI, conversational AI, cloud technologies, and Kubernetes. Worked on AI-powered chatbots, voice agents, educational technology platforms, and cloud-native infrastructure projects. Passionate about building intelligent systems that create real-world impact through AI and automation."
   },
+
+  "education": {
+    "university": "Bilkent University",
+    "department": "Computer Technologies and Information Systems (CTIS)",
+    "degree": "Bachelor's Degree",
+    "cgpa": "3.33/4.00",
+    "dates": "2022 - Present (Expected Graduation: May 2027)",
+    "relevant_coursework": [
+      "Algorithms & Problem Solving",
+      "Database Management Systems",
+      "Software Engineering",
+      "Data Analysis",
+      "Object-Oriented Programming",
+      "Web Development",
+      "Mobile Application Development",
+      "Computer Networks"
+    ]
+  },
+
   "projects": [
     {
-      "name": "EduGraph (YKS Koçluk Platformu)",
-      "category": "AI & Web Project",
-      "tech": ["Python", "AI", "Knowledge Graphs", "Web Development"],
-      "description": "Şu anda takım arkadaşlarıyla aktif olarak geliştirdiği, AI destekli bir YKS eğitim platformudur. Öğrencilerin öğrenme hedeflerini 'Knowledge Graph' (Bilgi Grafikleri) ile görselleştirerek kişiselleştirilmiş koçluk sağlar. (En güncel ve büyük projesidir)."
+      "name": "BayKoç",
+      "role": "Co-Founder & Developer",
+      "website": "https://baykoc.net",
+      "category": "AI-Powered Educational Technology Platform",
+      "tech": [
+        "Python",
+        "LLMs",
+        "Generative AI",
+        "Prompt Engineering",
+        "AI Agents"
+      ],
+      "description": "Co-developed an AI-powered academic coaching platform that provides personalized study guidance for students and educational institutions. Designed AI-driven coaching workflows, personalized learning recommendations, and scalable educational technology solutions tailored for tutoring centers and schools."
     },
+
+    {
+      "name": "Ask-Ilgın",
+      "website": "https://ask-ilgin.streamlit.app",
+      "category": "AI Application",
+      "tech": [
+        "Python",
+        "Streamlit",
+        "LLMs",
+        "RAG"
+      ],
+      "description": "Built an interactive AI-powered resume assistant that enables recruiters and employers to explore professional experiences through natural language conversations."
+    },
+
+    {
+      "name": "Conversation Analytics Dashboard",
+      "category": "Generative AI",
+      "tech": [
+        "Python",
+        "Data Analytics",
+        "Visualization",
+        "LLM Evaluation"
+      ],
+      "description": "Developed a dashboard for analyzing LLM agent performance using conversation transcripts, structured logs, and interaction metrics."
+    },
+
     {
       "name": "WastlessWorld",
-      "category": "Web Application (PHP/SQL)",
-      "tech": ["PHP", "SQL", "HTML/CSS"],
-      "description": "PHP ve SQL kullanılarak geliştirilen, kullanıcıların 'Tüketici' veya 'Market' olarak kayıt olabildiği bir web platformudur. Ürün yönetimi (CRUD), alışveriş sepeti operasyonları ve güvenli kullanıcı giriş (authentication) sistemlerini içerir. Marketlerin ürünlerini listelemesini ve tüketicilerin bu ürünleri sepetlerine eklemesini sağlayan tam fonksiyonel bir e-ticaret altyapısına sahiptir."
+      "category": "Web Application",
+      "tech": [
+        "PHP",
+        "SQL",
+        "HTML",
+        "CSS"
+      ],
+      "description": "Developed a web platform where consumers and markets can interact through product listings, shopping cart management, authentication systems, and CRUD operations."
     },
+
     {
-      "name": "BookIT (Kütüphane Yönetim Sistemi)",
+      "name": "BookIT",
       "category": "Desktop Application",
-      "tech": ["Java", "OOP", "System Design"],
-      "description": "Java kullanılarak MASAÜSTÜ (Desktop) ortamı için geliştirilmiş kapsamlı bir kütüphane yönetim sistemi. Nesne Yönelimli Programlama (OOP) yapısı kullanılarak üye takibi, kitap ödünç alma/iade işlemleri ve ceza hesaplama algoritmaları kodlandı."
-    },
-    {
-      "name": "Android Studio Projeleri",
-      "category": "Mobile Application",
-      "tech": ["Android Studio", "Kotlin", "Mobile UI/UX"],
-      "description": "Android Studio platformunda Kotlin kullanarak geliştirdiği çeşitli mobil uygulamalar mevcuttur. Bu projelerde mobil arayüz tasarımı (UI), kullanıcı deneyimi (UX) ve mobil veri yönetimi konularında deneyim kazanmıştır."
-    },
-    {
-      "name": "EventHub",
-      "category": "Web Design",
-      "tech": ["HTML", "CSS", "Web Design"],
-      "description": "Etkinlik keşfetme ve rezervasyon platformu. Kullanıcı dostu arayüzü ile etkinlik galerisi, sepet yönetimi ve takım tanıtım sayfalarını içerir."
-    },
-    {
-      "name": "Crypto Trading Information System",
-      "category": "Web Simulation",
-      "tech": ["HTML", "CSS", "JavaScript", "Data Visualization"],
-      "description": "Gerçek piyasa verilerini kullanarak bir kripto para borsasını simüle eden web projesi. İnteraktif grafikler ve gerçek zamanlı cüzdan yönetimi içerir."
-    },
-    {
-      "name": "Rocket-Simulator",
-      "category": "Physics Simulation",
-      "tech": ["C++", "Physics Engine", "OOP"],
-      "description": "Roket yörüngelerini modellemek için C++ ile geliştirilmiş bir fizik simülasyonu."
-    },
-    {
-      "name": "ask-ilgin (AI Dijital İkiz)",
-      "category": "AI Application",
-      "tech": ["Python", "Streamlit", "Google Gemini API", "RAG"],
-      "description": "Kendi profesyonel deneyimlerini ve CV verilerini interaktif bir şekilde sunan yapay zeka tabanlı web uygulaması."
+      "tech": [
+        "Java",
+        "OOP"
+      ],
+      "description": "Developed a library management system supporting member tracking, borrowing and return operations, and penalty calculations using object-oriented design principles."
     }
   ],
+
   "experience": [
     {
-      "company": "Online (Turkey & Balkans) Social Office",
-      "role": "IT Internship Program",
-      "dates": "Kasım 2025 - Devam Ediyor",
-      "description": "Uluslararası bir ortamda teknik ve yaratıcı becerileri geliştirmek amacıyla Excel, AutoCAD, Photoshop ve Python odaklı portföy tabanlı BT eğitim programına katılım sağlıyor.",
-      "skills": ["Excel", "AutoCAD", "Photoshop", "Python", "MS Office Suite"]
+      "company": "AI Studio",
+      "role": "AI Engineering Intern",
+      "dates": "January 2026 - March 2026",
+      "description": "Worked on voice agent technologies including text-to-speech (TTS) and speech-to-text (STT) systems. Developed conversation analytics dashboards and domain-specific, tool-integrated, guardrail-based chatbot solutions."
     },
-    {
-      "company": "YMD Technology",
-      "role": "IT Network and Technology Specialist (Freelance - Remote)",
-      "dates": "Ağustos 2025 - Ekim 2025",
-      "description": "Ağ bakımı ve altyapı izleme desteği sağladı. Start-up sahibi öğrenciye çeşitli konularda tavsiye verip mentorluk yaptı. Takım birliği ve iletişim süreçlerindeki uyumsuzluklar nedeniyle profesyonelce ayrılarak yeni fırsatlara odaklandı."
-    },
+
     {
       "company": "Portakal Technology",
-      "role": "DevOps Summer Intern",
-      "dates": "Haziran 2025 - Ağustos 2025",
-      "description": "VMware'den hibrit buluta geçiş (Mirantis kos, kordent, OpenStack) projelerinde aktif rol aldı. Disaster Recovery (DR) planlaması yaptı. Özellikle birden fazla node oluşturarak bu nodelar arasında şifresiz uygulama deployment süreçlerini başarıyla yönetti."
+      "role": "DevOps Intern",
+      "dates": "June 2025 - August 2025 / March 2026 - Present",
+      "description": "Worked on hybrid cloud migration projects using Mirantis k0s, k0rdent, and OpenStack. Contributed to Kubernetes infrastructure deployment, networking, storage, backup strategies, and disaster recovery planning."
     },
+
     {
-      "company": "Self-employed",
-      "role": "Coding Tutor",
-      "dates": "Haziran 2025 - Ağustos 2025",
-      "description": "Üniversite öğrencilerine C programlama ve algoritma dersleri verdi. Öğrencilerin farklı öğrenme seviyelerine göre anlatım tarzını adapte etti (Adaptive Teaching). Kodlama bilmeyen öğrenciler için analojiler ve hayal gücü odaklı anlatım teknikleri geliştirdi. Tüm öğrencileri dersi yüksek notlarla geçti."
+      "company": "Commencis Cloud Camp",
+      "role": "Participant",
+      "dates": "January 2026 - February 2026",
+      "description": "Selected among 25 participants for an intensive cloud technologies and software engineering training program focused on AWS and modern development practices."
     },
+
     {
-      "company": "Bilkent University",
-      "role": "Promoter & Social Project Member",
-      "dates": "2023 - 2025",
-      "description": "Üniversite tanıtımlarında lise öğrencilerine rehberlik etti. Öğrencilere kısa Bilkent turu yaptırıp okul hakkında bilgi verdi. Gunkoy sosyal sorumluluk projesinde köy okulları için kütüphane kurma çalışmalarını yönetti. Maddi imkanı kısıtlı köylerde sıfırdan kütüphane inşasına fiziksel olarak yardım etti; duvarları çocuklar için takım olarak tasarlayıp boyadı. Gece okulda kalarak ekibiyle birlikte iki günde kütüphaneyi tamamlayacak kadar özverili çalıştı."
+      "company": "AWS Cloud Bilkent",
+      "role": "Board Member",
+      "dates": "November 2025 - Present",
+      "description": "Organizing technical events, workshops, partnerships, and cloud-focused community activities."
     },
+
     {
-      "company": "Bilkent University",
-      "role": "Part-time Assistant (Student Affairs)",
-      "dates": "2023 - 2024",
-      "description": "Öğrenci işlerinde belge süreçlerine ve idari işlere yardımcı oldu. Gerektiğinde telefonlara cevap verip, yoğun kayıt dönemlerinde tam zamanlı çalışanların iş yükünü hafifletmekte aktif rol aldı."
+      "company": "Coding Tutor",
+      "role": "Self-Employed",
+      "dates": "June 2025 - August 2025",
+      "description": "Provided one-on-one tutoring in C programming, problem solving, and Software Engineering concepts to university students."
     }
   ],
+
   "skills": {
-    "programming": ["Java", "C", "SQL", "R", "Kotlin", "HTML", "CSS", "JavaScript", "Python"],
-    "tools_ide": ["RStudio", "Visual Studio", "VS Code", "Eclipse IDE", "Android Studio", "AutoCAD", "Photoshop"],
-    "cloud_devops": ["Kubernetes (kos, kordent)", "Mirantis OpenStack", "Proxmox VE"],
-    "database": ["Oracle Database"]
+    "ai": [
+      "Generative AI",
+      "LLM Applications",
+      "Prompt Engineering",
+      "Conversational AI",
+      "AI Agents",
+      "Voice Agents",
+      "RAG",
+      "LLM Evaluation"
+    ],
+
+    "programming": [
+      "Python",
+      "Java",
+      "C",
+      "SQL",
+      "R",
+      "Kotlin",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+
+    "cloud_devops": [
+      "Kubernetes (k0s, k0rdent)",
+      "Mirantis OpenStack",
+      "Proxmox VE",
+      "Linux",
+      "Cloud Infrastructure"
+    ],
+
+    "tools": [
+      "VS Code",
+      "Android Studio",
+      "RStudio",
+      "Streamlit",
+      "Git",
+      "Oracle Database"
+    ]
   },
+
   "certificates": [
     "CCNA: Introduction to Networks",
-    "CN 050: Introduction to Cloud Native Computing",
-    "Veeam Sales Professional - Cybersecurity & DR",
+    "CN050: Introduction to Cloud Native Computing",
+    "Veeam Sales Professional – Public Cloud",
+    "Veeam Sales Professional – Cybersecurity & DR",
     "Veeam Kubernetes Data Protection"
   ],
+
   "languages": [
-    "Türkçe (Anadil)",
-    "İngilizce (Upper Intermediate)",
-    "Almanca (Başlangıç)"
+    "Turkish (Native)",
+    "English (Upper Intermediate)",
+    "German (Beginner)"
   ],
-  "hobbies": [
-    "Yüzme (Eski lisanslı sporcu)",
-    "Satranç (Eski yarışmacı)",
-    "Voleybol"
-  ],
-  "references": "Referans bilgileri istek üzerine iletilebilir."
+
+  "career_goal": {
+    "goal": "To build intelligent AI-powered products and scalable cloud-based systems while specializing in Generative AI, Agentic AI, and modern cloud technologies."
+  }
 }
