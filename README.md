@@ -15,7 +15,7 @@ This project uses **RAG (Retrieval-Augmented Generation)** principles:
 ## 🛠 Tech Stack
 * **Language:** Python 3.10+
 * **Interface:** Streamlit (for rapid frontend development)
-* **AI Model:** Google Gemini API (Generative AI)
+* **AI Model:** OpenAI
 * **Deployment:** Streamlit Community Cloud
 
 ## 📂 Project Structure
